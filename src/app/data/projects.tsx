@@ -1,3 +1,14 @@
+import image_picky_cover from 'figma:asset/picky-cover.png';
+import image_ai_filter_cover from 'figma:asset/ai-filter-cover.png';
+import image_marketplace_cover from 'figma:asset/marketplace-mkt-cover.png';
+import image_marketplace_1 from 'figma:asset/marketplace-mkt-1.png';
+import image_marketplace_2 from 'figma:asset/marketplace-mkt-2.png';
+import image_marketplace_3 from 'figma:asset/marketplace-mkt-3.png';
+import image_marketplace_4 from 'figma:asset/marketplace-mkt-4.png';
+import image_picky_1 from 'figma:asset/picky-1.png';
+import image_picky_2 from 'figma:asset/picky-2.png';
+import image_picky_3 from 'figma:asset/picky-3.png';
+import image_picky_4 from 'figma:asset/picky-4.png';
 import image_d6c25ae3e31a247fcc600e46f81573bdfc0bd130 from 'figma:asset/d6c25ae3e31a247fcc600e46f81573bdfc0bd130.png';
 import image_ca755fe3c9ffc4cfc91459b23bc587e290f1b0f6 from 'figma:asset/ca755fe3c9ffc4cfc91459b23bc587e290f1b0f6.png';
 import image_fafdb4152ec1cb5cf08b3818efc9de507ed40358 from 'figma:asset/fafdb4152ec1cb5cf08b3818efc9de507ed40358.png';
@@ -101,6 +112,81 @@ import image_e912d90c82cc4ad4f7718040ddf1c649b38363b3 from 'figma:asset/e912d90c
 // Mock Data
 export const PROJECTS = [
   {
+    id: "picky",
+    title: "Picky",
+    category: "Side Project",
+    role: "Product Designer & Builder",
+    image: image_picky_cover,
+    description: "Music discovery, reimagined",
+    additionalImages: [
+      image_picky_1,
+      image_picky_2,
+      image_picky_3,
+      image_picky_4,
+    ],
+    content: {
+      contribution: "Product design, Interaction design, Engineering (Claude Code), Architecture",
+      overview: (
+        <>
+          A swipe-based music discovery PWA that aggregates album reviews from trusted critics and influencers — Pitchfork, Anthony Fantano, The Quietus, Tofu Media, Turning the Tables — into one fast, mobile-first feed. Swipe right to save, left to skip, tap to read the full review and open the album in Spotify or Apple Music.
+        </>
+      ),
+      outcome: "",
+      techStack: "React, Vite, TypeScript, Tailwind, Framer Motion, Zustand, Claude API, Spotify Web API, YouTube Data API, GitHub Actions, Vercel",
+      outcome: "picky-live-beta",
+      credits: "",
+    },
+  },
+  {
+    id: "2",
+    title: "Deel AI Filter",
+    category: "Strategy",
+    role: "Staff Product Designer",
+    image: image_ai_filter_cover,
+    description: "A search field that understands intent transforming simple queries into multi-layered filters.",
+    additionalImages: [
+        image_e2ea81540a01142a3a2fa93889862a0562ac690f,
+        "https://images.unsplash.com/photo-1757267898580-75195d47a8dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBwdWJsaWMlMjBwYXJrJTIwY29wZW5oYWdlbiUyMGFyY2hpdGVjdHVyZXxlbnwxfHx8fDE3NjY5MzYwNTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+        image_e1c6329a0d3e089d2d71032b8757b26f74ae4a26
+    ],
+    content: {
+        contribution: "UX design, Interaction design, Design systems",
+        overview: (
+            <>
+                I designed the <span className="text-[#FF9300] font-semibold">AI filter pattern</span> to translate natural language queries into structured, scalable filters across Deel’s data-heavy surfaces. The system adapts across contexts—data grids, filter drawers, and advanced rule editors—<span className="text-[#FF9300] font-semibold">improving discoverability</span> while reducing the effort required to <span className="text-[#FF9300] font-semibold">refine complex datasets</span>.
+            </>
+        ),
+        outcome: "The pattern was adopted by four product teams within the first quarter, where AI-generated conditions reduced client setup time by approximately 22% during workforce imports and syncs. Smart filters achieved a 91% first-try accuracy rate, validating the system’s ability to reliably convert intent into actionable structure.",
+        techStack: "Unreal Engine 5, React, Three.js",
+        credits: "Architecture: BIG\nDigital Experience: Alex Morgan Studio"
+    }
+  },
+  {
+    id: "marketplace",
+    title: "Deel Marketplace",
+    category: "Product",
+    role: "Staff Product Designer",
+    image: image_marketplace_cover,
+    description: "Integrations, at scale",
+    additionalImages: [
+      image_marketplace_1,
+      image_marketplace_2,
+      image_marketplace_3,
+      image_marketplace_4,
+    ],
+    content: {
+      contribution: "UX design, Interaction design, Design systems",
+      overview: (
+        <>
+          A marketplace experience that lets companies discover, evaluate, and connect 80+ integrations to their Deel workspace — from HRIS and accounting tools to SSO providers and automation platforms.
+        </>
+      ),
+      outcome: "Covers discovery, per-app detail pages, guided install & provisioning flows, role-aware access (admin vs. employee vs. logged-out), post-install management, and a fully responsive layout — all built on Deel’s internal design system.",
+      techStack: "React, TypeScript, Deel UI Core",
+      credits: "",
+    },
+  },
+  {
     id: "1",
     title: "Deel AI System",
     category: "Product",
@@ -127,30 +213,6 @@ export const PROJECTS = [
         outcome: "Within three months of launch, 83% of interaction components adopted the new AI properties, with AI-enabled inputs exceeding 45,000 insertions in the first quarter. The system has since been integrated by 12 product teams and used to ship 7 major AI features across the platform.",
         techStack: "React, Next.js, WebGL, Tailwind CSS, Sanity CMS",
         credits: "Creative Direction: Bakken & Bæck\nDevelopment: Bakken & Bæck\nClient: Sierra"
-    }
-  },
-  {
-    id: "2",
-    title: "Deel AI Filter",
-    category: "Strategy",
-    role: "Staff Product Designer",
-    image: image_ca755fe3c9ffc4cfc91459b23bc587e290f1b0f6,
-    description: "A search field that understands intent transforming simple queries into multi-layered filters.",
-    additionalImages: [
-        image_e2ea81540a01142a3a2fa93889862a0562ac690f,
-        "https://images.unsplash.com/photo-1757267898580-75195d47a8dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBwdWJsaWMlMjBwYXJrJTIwY29wZW5oYWdlbiUyMGFyY2hpdGVjdHVyZXxlbnwxfHx8fDE3NjY5MzYwNTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-        image_e1c6329a0d3e089d2d71032b8757b26f74ae4a26
-    ],
-    content: {
-        contribution: "UX design, Interaction design, Design systems",
-        overview: (
-            <>
-                I designed the <span className="text-[#FF9300] font-semibold">AI filter pattern</span> to translate natural language queries into structured, scalable filters across Deel’s data-heavy surfaces. The system adapts across contexts—data grids, filter drawers, and advanced rule editors—<span className="text-[#FF9300] font-semibold">improving discoverability</span> while reducing the effort required to <span className="text-[#FF9300] font-semibold">refine complex datasets</span>.
-            </>
-        ),
-        outcome: "The pattern was adopted by four product teams within the first quarter, where AI-generated conditions reduced client setup time by approximately 22% during workforce imports and syncs. Smart filters achieved a 91% first-try accuracy rate, validating the system’s ability to reliably convert intent into actionable structure.",
-        techStack: "Unreal Engine 5, React, Three.js",
-        credits: "Architecture: BIG\nDigital Experience: Alex Morgan Studio"
     }
   },
   {

@@ -29,8 +29,7 @@ export const Header = ({ activeTab, onTabChange }: HeaderProps) => {
       </div>
 
       <div>
-        <motion.div style={{ opacity }} className="fixed top-0 left-0 w-full h-[90px] bg-gradient-to-b from-[#ffad8f] via-[#f3d9ff] via-[50.481%] to-transparent pointer-events-none -z-10" />
-        <div className="fixed top-6 left-1/2 z-50 -translate-x-1/2 pointer-events-auto flex items-center gap-1 rounded-full border border-white/40 bg-neutral-200/50 p-1.5 shadow-[0_8px_30px_rgb(0,0,0,0.06)] backdrop-blur-3xl transition-all hover:bg-neutral-200/60">
+<div className="fixed top-6 left-1/2 z-50 -translate-x-1/2 pointer-events-auto flex items-center gap-1 rounded-full border border-white/40 bg-neutral-200/50 p-1.5 shadow-[0_4px_16px_rgb(0,0,0,0.14)] backdrop-blur-3xl transition-all hover:bg-neutral-200/60">
         <button 
             onClick={() => onTabChange('work')}
             className={`relative rounded-full px-8 py-3 text-sm transition-all text-neutral-900 ${activeTab !== 'work' ? 'hover:bg-black/5' : ''}`}

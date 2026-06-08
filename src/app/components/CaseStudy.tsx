@@ -1,3 +1,14 @@
+import image_ai_filter_2 from 'figma:asset/ai-filter-2.png';
+import image_ai_filter_3 from 'figma:asset/ai-filter-3.png';
+import image_picky_1 from 'figma:asset/picky-1.png';
+import image_picky_2 from 'figma:asset/picky-2.png';
+import image_picky_3 from 'figma:asset/picky-3.png';
+import image_picky_4 from 'figma:asset/picky-4.png';
+import image_picky_image4 from 'figma:asset/picky-image-4.png';
+import image_marketplace_1 from 'figma:asset/marketplace-mkt-1.png';
+import image_marketplace_2 from 'figma:asset/marketplace-mkt-2.png';
+import image_marketplace_3 from 'figma:asset/marketplace-mkt-3.png';
+import image_marketplace_4 from 'figma:asset/marketplace-mkt-4.png';
 import image_ae7d83864749d0a9f5f94138a6b3467b94535342 from 'figma:asset/ae7d83864749d0a9f5f94138a6b3467b94535342.png'
 import image_2cd90c07b614e2f1004331266171d8e5a1c3b12c from 'figma:asset/2cd90c07b614e2f1004331266171d8e5a1c3b12c.png'
 import image_2e7cb60daaad963190166babbbb63488449849db from 'figma:asset/2e7cb60daaad963190166babbbb63488449849db.png'
@@ -114,7 +125,7 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 100 }}
       transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
-      className="fixed inset-0 z-50 overflow-y-auto bg-[#EEEFE5] bg-gradient-to-b from-[#D1E7FC] via-[#EEEFE5] to-[#FFD7BC] text-[#1D1D1F]"
+      className="fixed inset-0 z-50 overflow-y-auto bg-[#F7F5F2] text-[#1D1D1F]"
     >
       {/* Top Fixed Header (Initial) */}
       <div className="absolute top-0 left-0 right-0 z-50 py-[48px] px-0 md:px-8 flex justify-center pointer-events-none">
@@ -193,6 +204,10 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                             ? "I designed the AI filter pattern to translate natural language queries into structured, scalable filters across Deel’s data-heavy surfaces. The system adapts across contexts such as data grids, filter drawers, and advanced rule editors, improving discoverability while reducing the effort required to refine complex datasets."
                             : project.id === '3'
                             ? "I designed the AI layer for Global Search, enabling contextual understanding when searching for people across the platform. Instead of returning a static profile, the system generates an AI overview that surfaces key details, relationships, and relevant actions, turning search into immediate comprehension of a worker’s state."
+                            : project.id === 'marketplace'
+                            ? "A marketplace experience that lets companies discover, evaluate, and connect 80+ integrations to their Deel workspace — from HRIS and accounting tools to SSO providers and automation platforms."
+                            : project.id === 'picky'
+                            ? "A swipe-based music discovery PWA that aggregates album reviews from trusted critics and influencers — Pitchfork, Anthony Fantano, The Quietus, Tofu Media, Turning the Tables — into one fast, mobile-first feed. Swipe right to save, left to skip, tap to read the full review and open the album in Spotify or Apple Music."
                             : project.id === '8'
                             ? "I designed the seller messaging flow at Proprioo to help agents move from raw contact lists to targeted, contextual outreach. The experience brings together contact selection, status-based filtering, and message creation into a single, structured workflow, reducing friction and helping agents focus on the right sellers at the right time. By aligning data, actions, and messaging in one flow, the system improved efficiency, clarity, and consistency across agent communication."
                             : project.content.overview}
@@ -203,6 +218,8 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                                     ? "Within three months of launch, 83% of product teams had incorporated the new AI-ready patterns into their flows, replacing fragmented implementations with a unified approach. The system has since been integrated by 12 product teams and used to ship 7 major AI features across the platform."
                                     : project.id === '5'
                                     ? "I documented the full navigation model across desktop and mobile to support scalability and long-term adoption. Within the first quarter, the pattern was adopted by six product teams and became a shared navigation foundation, reducing design debt and improving wayfinding metrics by nearly 20%."
+                                    : project.id === 'picky'
+                                    ? <>Picky is a personal project I designed and built from scratch. Currently in beta — live and usable at <a href="https://explore-track.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">explore-track.vercel.app</a>. Still iterating on onboarding, the feedback loop, and new sources.</>
                                     : project.content.outcome}
                             </span>
                         )}
@@ -232,19 +249,33 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
           {/* Images */}
           <div className="space-y-4 md:space-y-8">
             {/* Hero Image */}
-            <div 
+            <div
                 className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5"
             >
                 <img
-                    src={project.image}
+                    src={project.id === '2' ? image_ai_filter_2 : project.image}
                     alt={project.title}
                     className="w-full h-auto object-cover"
                     loading="eager"
                 />
             </div>
 
+            {/* Marketplace mkt-1 after cover */}
+            {project.id === 'marketplace' && (
+                <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                    <img src={image_marketplace_1} alt="Marketplace image 1" className="w-full h-auto object-cover" loading="lazy" />
+                </div>
+            )}
+
+            {/* Picky image-4 after cover */}
+            {project.id === 'picky' && (
+                <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                    <img src={image_picky_image4} alt="Picky image 4" className="w-full h-auto object-cover" loading="lazy" />
+                </div>
+            )}
+
             {/* Challenge Section */}
-            {project.id !== '7' && project.id !== '8' && (
+            {project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && (
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-4 lg:gap-12 px-6 lg:px-[144px] py-[56px]">
                    <div>
                       <h3 className="text-2xl text-[#1D1D1F] font-medium">The Challenge</h3>
@@ -272,10 +303,6 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                   <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
                      <img src={image_111d8a6f56f668fb50a3dc030108066775dd7dd2} alt="Challenge Detail 1" className="w-full h-auto object-cover" loading="lazy" />
                   </div>
-                  <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                     <img src={image_69b03ce11bbd06bc2afdd0f1d186526fd3e27a4e} alt="Challenge Detail 2" className="w-full h-auto object-cover" loading="lazy" />
-                  </div>
-
                   {/* The Solution Section */}
                   <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-4 lg:gap-12 px-6 lg:px-[144px] py-[56px]">
                      <div>
@@ -298,14 +325,41 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
             {/* Additional Images Grid */}
             {project.additionalImages && project.additionalImages.length > 0 && (
                 <>
-                    {/* Next two side-by-side if available */}
-                    {project.additionalImages.length > 2 && project.id !== '2' && project.id !== '3' && project.id !== '4' && project.id !== '5' && project.id !== '6' && project.id !== '7' && project.id !== '8' && (
+                    {/* Picky Special Layout */}
+                    {project.id === 'picky' && (
+                        <>
+                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                                <img src={image_picky_2} alt="Picky Detail 2" className="w-full h-auto object-cover" loading="lazy" />
+                            </div>
+                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                                <img src={image_picky_3} alt="Picky Detail 3" className="w-full h-auto object-cover" loading="lazy" />
+                            </div>
+                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                                <img src={image_picky_1} alt="Picky Detail 1" className="w-full h-auto object-cover" loading="lazy" />
+                            </div>
+                        </>
+                    )}
+
+                    {/* Marketplace Special Layout */}
+                    {project.id === 'marketplace' && (
+                        <>
+                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                                <img src={image_marketplace_2} alt="Marketplace Detail 2" className="w-full h-auto object-cover" loading="lazy" />
+                            </div>
+                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                                <img src={image_marketplace_3} alt="Marketplace Detail 3" className="w-full h-auto object-cover" loading="lazy" />
+                            </div>
+                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                                <img src={image_marketplace_4} alt="Marketplace Detail 4" className="w-full h-auto object-cover" loading="lazy" />
+                            </div>
+                        </>
+                    )}
+
+                    {/* Next image if available */}
+                    {project.additionalImages.length > 1 && project.id !== '2' && project.id !== '3' && project.id !== '4' && project.id !== '5' && project.id !== '6' && project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && (
                         <>
                              <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
                                 <img src={project.additionalImages[1]} alt="Project Detail 2" className="w-full h-auto object-cover" loading="lazy" />
-                            </div>
-                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <img src={project.additionalImages[2]} alt="Project Detail 3" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
                         </>
                     )}
@@ -320,10 +374,6 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                     {/* AI Filter (ID 2) Extra Images */}
                     {project.id === '2' && (
                         <>
-                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <img src={image_674a7dd467c81a9015d8add679a68fc7b53e0f7b} alt="AI Filter Detail 4" className="w-full h-auto object-cover" loading="lazy" />
-                            </div>
-
                              {/* Exploration Section */}
                              <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-4 lg:gap-12 px-6 lg:px-[144px] py-[56px]">
                                 <div>
@@ -356,20 +406,6 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                             </div>
                             
                             {/* New Independent Image 1 */}
-                             <div 
-                                className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5 relative"
-                                style={{ WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
-                            >
-                                <video 
-                                    src="https://res.cloudinary.com/dhwlqodca/video/upload/f_auto,q_auto:best/v1769355979/YXFinalFilterAI_xbzxvd.mp4" 
-                                    className="w-full h-auto object-cover block" 
-                                    autoPlay 
-                                    loop 
-                                    muted 
-                                    playsInline
-                                />
-                            </div>
-
                             {/* New Independent Image 2 */}
                              <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
                                 <img src={image_f19d971b50bd77036f16ba270b5fa65217e90a96} alt="AI Filter New Independent 2" className="w-full h-auto object-cover" loading="lazy" />
@@ -378,6 +414,9 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                             {/* 7 Placeholder Images */}
                              <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
                                 <img src={image_0e6c0f9d5122d7ec1b975bad36cf444dcc8d2a0c} alt="Placeholder 2" className="w-full h-auto object-cover" loading="lazy" />
+                            </div>
+                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                                <img src={image_ai_filter_3} alt="AI Filter Detail 3" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
 
 
@@ -390,9 +429,11 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                     {/* Coinbase & Frame Special: Render images 2 & 3 (index 1 & 2) full width */}
                      {(project.id === '3' || project.id === '4' || project.id === '5' || project.id === '6') && project.additionalImages.length > 2 && (
                         <>
-                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <img src={project.additionalImages[1]} alt="Project Detail 2" className="w-full h-auto object-cover" loading="lazy" />
-                            </div>
+                             {project.id !== '3' && (
+                                <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                                    <img src={project.additionalImages[1]} alt="Project Detail 2" className="w-full h-auto object-cover" loading="lazy" />
+                                </div>
+                             )}
                              <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
                                 <img src={project.additionalImages[2]} alt="Project Detail 3" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
@@ -424,17 +465,9 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                     )}
 
                     {/* Solution Section */}
-                    {/* Placeholder Images - ONLY for Deel AI System (ID 1) */}
-                    {project.id === '1' && (
-                       <>
-                           <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <img src={image_71b37b995376e26b7e4591351de7d4e8678d8ecb} alt="Project Detail Placeholder 1" className="w-full h-auto object-cover" loading="lazy" />
-                           </div>
-                       </>
-                    )}
 
                     {project.id !== '2' && (
-                        project.id !== '3' && project.id !== '7' && project.id !== '8' && (
+                        project.id !== '3' && project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && (
                            <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-4 lg:gap-12 px-6 lg:px-[144px] py-[56px]">
                               <div>
                                  <h3 className="text-2xl text-[#1D1D1F] font-medium">The Solution</h3>
@@ -449,7 +482,7 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                     )}
 
                     {/* First additional image (Full width) */}
-                    {project.id !== '5' && project.id !== '2' && project.id !== '8' && (
+                    {project.id !== '5' && project.id !== '2' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && (
                         <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
                             <img src={project.id === '7' ? image_7d06fcacd31da9ee5c8ad7914f5e6b38d500a82c : project.additionalImages?.[0]} alt="Project Detail 1" className="w-full h-auto object-cover" loading="lazy" />
                         </div>
@@ -458,7 +491,7 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
 
 
                     {/* Remaining additional images (Full width) */}
-                    {project.additionalImages.length > 3 && project.id !== '5' && project.id !== '6' && project.id !== '3' && project.id !== '7' && project.id !== '8' && project.additionalImages.slice(3, project.id === '1' ? 4 : undefined).map((img, index) => (
+                    {project.additionalImages.length > 3 && project.id !== '5' && project.id !== '6' && project.id !== '3' && project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && project.additionalImages.slice(3, project.id === '1' ? 4 : undefined).map((img, index) => (
                         <div key={index + 3} className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
                             <img src={img} alt={`Project Detail ${index + 4}`} className="w-full h-auto object-cover" loading="lazy" />
                         </div>
@@ -467,10 +500,6 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                     {/* 6 Additional Placeholder Images - ONLY for Deel AI System (ID 1) */}
                     {project.id === '1' && (
                         <>
-                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <img src={image_e9adae8cf11bd60b3bad75d5843d7924b0777d0e} alt="Project Detail Placeholder 5" className="w-full h-auto object-cover" loading="lazy" />
-                            </div>
-                            
                             {/* New Independent Images Added by Request */}
                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
                                 <ImageWithFallback 
@@ -530,9 +559,6 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                             </div>
                              <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
                                 <img src={image_a6e288138682fabc78bf63691c76aead1a147ff4} alt="Sidebar Detail 3" className="w-full h-auto object-cover" loading="lazy" />
-                            </div>
-                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <img src={image_8a96cba901950722fc9e4cf7e985c5ffc374fb5e} alt="Sidebar Detail 4" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
                         </>
                     )}

@@ -30,7 +30,6 @@ export default function App() {
       style={{ backgroundColor }}
       className="min-h-screen text-black font-sans selection:bg-black selection:text-white relative overflow-hidden"
     >
-      <div className="absolute top-0 left-0 w-full h-[180px] bg-gradient-to-b from-[#ffad8f] via-[#f3d9ff] via-[50.481%] to-[#f7f5f2] pointer-events-none z-0" />
       <Header 
         activeTab={activeTab} 
         onTabChange={(tab) => {

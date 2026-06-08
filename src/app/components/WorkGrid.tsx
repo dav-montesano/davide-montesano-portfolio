@@ -16,6 +16,7 @@ interface WorkGridProps {
   introContent?: React.ReactNode;
 }
 
+
 // Define the background colors for the cards in order
 const CARD_COLORS = [
   "#252429", // 1. Dark Grey
