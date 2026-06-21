@@ -26,16 +26,27 @@ export default function App() {
       style={{ backgroundColor: "#F7F5F2" }}
       className="min-h-screen text-black font-sans selection:bg-black selection:text-white relative overflow-hidden"
     >
-      <Header
-        activeTab={activeTab}
-        onTabChange={(tab) => {
-          setActiveTab(tab);
-          window.scrollTo({ top: 0, behavior: "instant" });
-        }}
-      />
+      <div style={{
+        visibility: selectedProjectId ? "hidden" : "visible",
+        opacity: selectedProjectId ? 0 : 1,
+        transition: selectedProjectId ? "none" : "opacity 0.35s ease",
+      }}>
+        <Header
+          activeTab={activeTab}
+          onTabChange={(tab) => {
+            setActiveTab(tab);
+            window.scrollTo({ top: 0, behavior: "instant" });
+          }}
+        />
+      </div>
 
       <main
         className="relative z-10 pt-[128px] pb-[80px] max-w-[1800px] mx-auto px-[22px]"
+        style={{
+          visibility: selectedProjectId ? "hidden" : "visible",
+          opacity: selectedProjectId ? 0 : 1,
+          transition: selectedProjectId ? "none" : "opacity 0.35s ease",
+        }}
       >
         {activeTab === 'work' && (
             <>
