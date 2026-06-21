@@ -3,9 +3,9 @@
   "configurations": [
     {
       "name": "portfolio",
-      "runtimeExecutable": "/tmp/portfolio-dev.sh",
-      "runtimeArgs": [],
-      "port": 5173
+      "runtimeExecutable": "/Users/davide/.local/node/bin/node",
+      "runtimeArgs": ["/Users/davide/Desktop/Modern UX Designer Portfolio/node_modules/.bin/vite", "--port", "3002"],
+      "port": 3002
     }
   ]
 }

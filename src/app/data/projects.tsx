@@ -117,7 +117,7 @@ export const PROJECTS = [
     category: "Side Project",
     role: "Product Designer & Builder",
     image: image_picky_cover,
-    description: "Music discovery, reimagined",
+    description: "A swipe-based music discovery PWA that aggregates album reviews from trusted critics and influencers",
     additionalImages: [
       image_picky_1,
       image_picky_2,
@@ -167,7 +167,7 @@ export const PROJECTS = [
     category: "Product",
     role: "Staff Product Designer",
     image: image_marketplace_cover,
-    description: "Integrations, at scale",
+    description: "A marketplace experience that lets companies discover, evaluate, and connect 80+ integrations to their Deel workspace",
     additionalImages: [
       image_marketplace_1,
       image_marketplace_2,

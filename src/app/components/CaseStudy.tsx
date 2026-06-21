@@ -118,14 +118,21 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
     })
   }, [scrollY]);
 
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
+
   return (
     <motion.div
       ref={containerRef}
-      initial={{ opacity: 0, y: 100 }}
+      initial={{ opacity: 0, y: "100%" }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 100 }}
-      transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
-      className="fixed inset-0 z-50 overflow-y-auto bg-[#F7F5F2] text-[#1D1D1F]"
+      exit={{ opacity: 0, y: "100%" }}
+      transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+      className="fixed inset-0 z-[60] overflow-y-auto bg-[#F7F5F2] text-[#1D1D1F]"
     >
       {/* Top Fixed Header (Initial) */}
       <div className="absolute top-0 left-0 right-0 z-50 py-[48px] px-0 md:px-8 flex justify-center pointer-events-none">

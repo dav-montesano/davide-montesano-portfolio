@@ -45,7 +45,6 @@ export const WorkGrid = ({ projects, onProjectClick, introContent }: WorkGridPro
       )}
       {projects.map((project, index) => (
         <motion.div
-          layoutId={`project-card-${project.id}`}
           key={project.id}
           onClick={() => onProjectClick(project.id)}
           className="group relative cursor-pointer overflow-hidden rounded-[36px] aspect-[4/3]"
@@ -53,7 +52,7 @@ export const WorkGrid = ({ projects, onProjectClick, introContent }: WorkGridPro
         >
           {/* Animated Image Container */}
           <div className="absolute inset-0 overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:inset-[8px] group-hover:bottom-[160px] group-hover:rounded-[28px]">
-            <motion.div layoutId={`project-image-${project.id}`} className="h-full w-full relative">
+            <div className="h-full w-full relative">
                 <ImageWithFallback
                     src={project.image}
                     alt={project.title}
@@ -68,7 +67,7 @@ export const WorkGrid = ({ projects, onProjectClick, introContent }: WorkGridPro
                         <ArrowUpRight size={20} className="text-white" />
                     </div>
                 </div>
-            </motion.div>
+            </div>
             
             {/* Overlay */}
             <div className="absolute inset-0 bg-black/0 transition-all duration-500 group-hover:bg-black/10 rounded-[36px] group-hover:rounded-[28px] ring-[2px] ring-inset ring-[#E7E7E7]" />
