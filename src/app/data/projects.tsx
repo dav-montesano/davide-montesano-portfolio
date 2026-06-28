@@ -1,4 +1,4 @@
-import image_picky_cover from 'figma:asset/picky-cover.png';
+import image_picky_cover from 'figma:asset/new images no bg/picky/1_cover-image-inpage.png';
 import image_ai_filter_cover from 'figma:asset/ai-filter-cover.png';
 import image_marketplace_cover from 'figma:asset/marketplace-mkt-cover.png';
 import image_marketplace_1 from 'figma:asset/marketplace-mkt-1.png';
@@ -256,8 +256,6 @@ export const PROJECTS = [
     additionalImages: [
         "https://images.unsplash.com/photo-1613442301287-4fa478efd9ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaW5hbmNlJTIwaW52ZXN0bWVudCUyMG1vYmlsZSUyMGFwcCUyMGludGVyZmFjZSUyMGNsZWFufGVufDF8fHx8MTc2Njc2MTU1Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
         image_e923b8042cf9fec20019abd0287dfccab4905c1f,
-        image_5e9d5c27ad432844aa13438cb57db229e751a209,
-        "https://images.unsplash.com/photo-1764601841403-5c43713923c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaW50ZWNoJTIwbW9iaWxlJTIwYXBwJTIwaW52ZXN0bWVudCUyMHBvcnRmb2xpbyUyMHVpJTIwY2xlYW58ZW58MXx8fHwxNzY2OTUxNTYzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
     ],
     content: {
         contribution: "UX design, Interaction design, Design systems",

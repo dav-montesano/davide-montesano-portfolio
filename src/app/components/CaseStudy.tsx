@@ -341,9 +341,6 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
                                 <img src={image_picky_3} alt="Picky Detail 3" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
-                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <img src={image_picky_1} alt="Picky Detail 1" className="w-full h-auto object-cover" loading="lazy" />
-                            </div>
                         </>
                     )}
 
@@ -352,12 +349,6 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                         <>
                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
                                 <img src={image_marketplace_2} alt="Marketplace Detail 2" className="w-full h-auto object-cover" loading="lazy" />
-                            </div>
-                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <img src={image_marketplace_3} alt="Marketplace Detail 3" className="w-full h-auto object-cover" loading="lazy" />
-                            </div>
-                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <img src={image_marketplace_4} alt="Marketplace Detail 4" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
                         </>
                     )}
@@ -408,10 +399,6 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                                </div>
                             </div>
 
-                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <img src={image_cd250449bf36819c0e2a695662a62fbb85196462} alt="Deel AI Filter Gif" className="w-full h-auto object-cover" loading="lazy" />
-                            </div>
-                            
                             {/* New Independent Image 1 */}
                             {/* New Independent Image 2 */}
                              <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
@@ -422,9 +409,6 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                              <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
                                 <img src={image_0e6c0f9d5122d7ec1b975bad36cf444dcc8d2a0c} alt="Placeholder 2" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
-                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <img src={image_ai_filter_3} alt="AI Filter Detail 3" className="w-full h-auto object-cover" loading="lazy" />
-                            </div>
 
 
 
@@ -434,7 +418,7 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                     )}
 
                     {/* Coinbase & Frame Special: Render images 2 & 3 (index 1 & 2) full width */}
-                     {(project.id === '3' || project.id === '4' || project.id === '5' || project.id === '6') && project.additionalImages.length > 2 && (
+                     {(project.id === '3' || project.id === '4' || project.id === '6') && project.additionalImages.length > 2 && (
                         <>
                              {project.id !== '3' && (
                                 <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
@@ -446,13 +430,15 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                             </div>
                         </>
                     )}
+                    {project.id === '5' && project.additionalImages.length > 1 && (
+                        <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                            <img src={project.additionalImages[1]} alt="Project Detail 2" className="w-full h-auto object-cover" loading="lazy" />
+                        </div>
+                    )}
 
                     {/* New Project 1 (ID 7) Special Layout */}
                     {project.id === '7' && project.additionalImages.length > 2 && (
                         <>
-                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <img src={image_f725c61edd4a6fb9ada5202b8c59ba7159328524} alt="Project Detail 2" className="w-full h-auto object-cover" loading="lazy" />
-                            </div>
                              <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
                                 <img src={image_2e7cb60daaad963190166babbbb63488449849db} alt="Project Detail 3" className="w-full h-auto object-cover" loading="lazy" />
                             </div>

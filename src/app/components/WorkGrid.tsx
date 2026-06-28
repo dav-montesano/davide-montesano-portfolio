@@ -16,10 +16,9 @@ interface WorkGridProps {
   introContent?: React.ReactNode;
 }
 
-
-// Define the background colors for the cards in order
+// Card base background color (also the hover/text-area color)
 const CARD_COLORS = [
-  "#252429", // 1. Dark Grey
+  "#FFFFFF", // 1. White (Picky)
   "#C6914D", // 2. Golden Brown
   "#498EFF", // 3. Blue
   "#86BFE9", // 4. Light Blue
@@ -29,9 +28,22 @@ const CARD_COLORS = [
   "#86BFE9", // 8. Light Blue
 ];
 
+// Hover reveal background — shown behind image during hover (dark for text contrast)
+// null = use CARD_COLORS (same color, no separate overlay needed)
+const CARD_HOVER_COLORS: (string | null)[] = [
+  "#252429", // 1. Picky — dark bg revealed on hover for white text
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+];
+
 export const WorkGrid = ({ projects, onProjectClick, introContent }: WorkGridProps) => {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
@@ -50,8 +62,19 @@ export const WorkGrid = ({ projects, onProjectClick, introContent }: WorkGridPro
           className="group relative cursor-pointer overflow-hidden rounded-[36px] aspect-[4/3]"
           style={{ backgroundColor: CARD_COLORS[index % CARD_COLORS.length] }}
         >
+          {/* Hover reveal background (only for cards that need a different hover color) */}
+          {CARD_HOVER_COLORS[index % CARD_HOVER_COLORS.length] && (
+            <div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              style={{ backgroundColor: CARD_HOVER_COLORS[index % CARD_HOVER_COLORS.length] as string }}
+            />
+          )}
+
           {/* Animated Image Container */}
-          <div className="absolute inset-0 overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:inset-[8px] group-hover:bottom-[160px] group-hover:rounded-[28px]">
+          <div
+            className="absolute inset-0 overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:inset-[8px] group-hover:bottom-[160px] group-hover:rounded-[28px]"
+            style={CARD_HOVER_COLORS[index % CARD_HOVER_COLORS.length] ? { backgroundColor: CARD_COLORS[index % CARD_COLORS.length] } : undefined}
+          >
             <div className="h-full w-full relative">
                 <ImageWithFallback
                     src={project.image}
@@ -68,9 +91,9 @@ export const WorkGrid = ({ projects, onProjectClick, introContent }: WorkGridPro
                     </div>
                 </div>
             </div>
-            
+
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black/0 transition-all duration-500 group-hover:bg-black/10 rounded-[36px] group-hover:rounded-[28px] ring-[2px] ring-inset ring-[#E7E7E7]" />
+            <div className={`absolute inset-0 bg-black/0 transition-all duration-500 group-hover:bg-black/10 rounded-[36px] group-hover:rounded-[28px] ${index === 0 ? '' : 'ring-[2px] ring-inset ring-[#E7E7E7]'}`} />
           </div>
 
           {/* Revealed Text Content */}
