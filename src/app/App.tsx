@@ -9,6 +9,7 @@ import { Typewriter } from "./components/Typewriter";
 import { CurrentDate } from "./components/CurrentDate";
 import { AboutPage } from "./components/AboutPage";
 import { CaseStudy } from "./components/CaseStudy";
+// import { PullCord } from "./components/PullCord";
 
 import IntroCard from "./components/IntroCard";
 import SpotifyWidget from "./components/SpotifyWidget";
@@ -18,14 +19,18 @@ import { PROJECTS } from "./data/projects";
 export default function App() {
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<string>('work');
+  const [isDark, setIsDark] = useState(false);
 
   const selectedProject = PROJECTS.find((p) => p.id === selectedProjectId);
 
   return (
     <motion.div
-      style={{ backgroundColor: "#F7F5F2" }}
-      className="min-h-screen text-black font-sans selection:bg-black selection:text-white relative overflow-hidden"
+      animate={{ backgroundColor: isDark ? "#1D1D1F" : "#F7F5F2" }}
+      transition={{ duration: 0.5 }}
+      className={`min-h-screen font-sans selection:bg-white selection:text-black relative overflow-hidden${isDark ? " dark" : ""}`}
+      style={{ color: isDark ? "#F7F5F2" : "#1D1D1F" }}
     >
+      {/* <PullCord isDark={isDark} onToggle={() => setIsDark((d) => !d)} /> */}
       <div style={{
         visibility: selectedProjectId ? "hidden" : "visible",
         opacity: selectedProjectId ? 0 : 1,
@@ -73,7 +78,7 @@ export default function App() {
                             </div>
                         </div>
                     )}
-                    projects={PROJECTS}
+                    projects={PROJECTS.filter(p => p.id !== '8')}
                     onProjectClick={setSelectedProjectId} className="text-[24px] text-left px-[0px] py-[22px] rounded-[36px]"
                 />
             </>
