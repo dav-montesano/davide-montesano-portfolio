@@ -1,42 +1,37 @@
-import image_ai_filter_2 from 'figma:asset/ai-filter-2.png';
-import image_ai_filter_3 from 'figma:asset/ai-filter-3.png';
-import image_picky_1 from 'figma:asset/picky-1.png';
-import image_picky_2 from 'figma:asset/picky-2.png';
-import image_picky_3 from 'figma:asset/picky-3.png';
-import image_picky_4 from 'figma:asset/picky-4.png';
-import image_picky_image4 from 'figma:asset/picky-image-4.png';
-import image_marketplace_1 from 'figma:asset/marketplace-mkt-1.png';
-import image_marketplace_2 from 'figma:asset/marketplace-mkt-2.png';
-import image_marketplace_3 from 'figma:asset/marketplace-mkt-3.png';
-import image_marketplace_4 from 'figma:asset/marketplace-mkt-4.png';
-import image_ae7d83864749d0a9f5f94138a6b3467b94535342 from 'figma:asset/ae7d83864749d0a9f5f94138a6b3467b94535342.png'
-import image_2cd90c07b614e2f1004331266171d8e5a1c3b12c from 'figma:asset/2cd90c07b614e2f1004331266171d8e5a1c3b12c.png'
-import image_2e7cb60daaad963190166babbbb63488449849db from 'figma:asset/2e7cb60daaad963190166babbbb63488449849db.png'
+import image_ai_filter_2 from 'figma:asset/new images no bg/ai filter/1_ai-filter-2.png';
+import image_picky_2 from 'figma:asset/new images no bg/picky/3_image-2.png';
+import image_picky_3 from 'figma:asset/new images no bg/picky/4_image-3.png';
+import image_picky_image4 from 'figma:asset/new images no bg/picky/2_image-4.png';
+import image_marketplace_1 from 'figma:asset/new images no bg/marketplace/2_image-mkt-1.png';
+import image_marketplace_2 from 'figma:asset/new images no bg/marketplace/3_image-mkt-2.png';
+import image_ae7d83864749d0a9f5f94138a6b3467b94535342 from 'figma:asset/new images no bg/proprioo/3_8.4.png'
+import image_2cd90c07b614e2f1004331266171d8e5a1c3b12c from 'figma:asset/new images no bg/proprioo/2_8.3.png'
+import image_2e7cb60daaad963190166babbbb63488449849db from 'figma:asset/new images no bg/Casavo/2_7.1.png'
 import image_2c0d695fad23416d66657dcc4de416789485c8cf from 'figma:asset/2c0d695fad23416d66657dcc4de416789485c8cf.png'
-import image_7d06fcacd31da9ee5c8ad7914f5e6b38d500a82c from 'figma:asset/7d06fcacd31da9ee5c8ad7914f5e6b38d500a82c.png'
+import image_7d06fcacd31da9ee5c8ad7914f5e6b38d500a82c from 'figma:asset/new images no bg/Casavo/3_7.5.png'
 import image_f725c61edd4a6fb9ada5202b8c59ba7159328524 from 'figma:asset/f725c61edd4a6fb9ada5202b8c59ba7159328524.png'
 import image_4ba583375c61688854673e0400904b0fccf4fca0 from 'figma:asset/4ba583375c61688854673e0400904b0fccf4fca0.png'
 import image_8a96cba901950722fc9e4cf7e985c5ffc374fb5e from 'figma:asset/8a96cba901950722fc9e4cf7e985c5ffc374fb5e.png';
 import image_69b03ce11bbd06bc2afdd0f1d186526fd3e27a4e from 'figma:asset/69b03ce11bbd06bc2afdd0f1d186526fd3e27a4e.png';
-import image_111d8a6f56f668fb50a3dc030108066775dd7dd2 from 'figma:asset/111d8a6f56f668fb50a3dc030108066775dd7dd2.png';
-import image_0e6c0f9d5122d7ec1b975bad36cf444dcc8d2a0c from 'figma:asset/0e6c0f9d5122d7ec1b975bad36cf444dcc8d2a0c.png';
-import image_2c9d546db85fe10ba5d5193105902d360606562a from 'figma:asset/2c9d546db85fe10ba5d5193105902d360606562a.png';
+import image_111d8a6f56f668fb50a3dc030108066775dd7dd2 from 'figma:asset/new images no bg/ai search/2_Frame 2055247763.png';
+import image_0e6c0f9d5122d7ec1b975bad36cf444dcc8d2a0c from 'figma:asset/new images no bg/ai filter/4_Frame 2055247784.png';
+import image_2c9d546db85fe10ba5d5193105902d360606562a from 'figma:asset/new images no bg/ai filter/2_light_Frame 2055247759.png';
 import image_674a7dd467c81a9015d8add679a68fc7b53e0f7b from 'figma:asset/674a7dd467c81a9015d8add679a68fc7b53e0f7b.png';
-import image_4ed47e70212ef993d5a438705c2e9ba3d23ec7a9 from 'figma:asset/4ed47e70212ef993d5a438705c2e9ba3d23ec7a9.png';
+import image_4ed47e70212ef993d5a438705c2e9ba3d23ec7a9 from 'figma:asset/new images no bg/ai system/7_ais-3.png';
 import image_48c26cc26b97febd95f7b86cd650aa77c037242a from 'figma:asset/48c26cc26b97febd95f7b86cd650aa77c037242a.png';
 import image_e9adae8cf11bd60b3bad75d5843d7924b0777d0e from 'figma:asset/e9adae8cf11bd60b3bad75d5843d7924b0777d0e.png';
 import image_4ad734242e689cdbf0d115c84e00d0e3d8206b33 from 'figma:asset/4ad734242e689cdbf0d115c84e00d0e3d8206b33.png';
 import image_208428605eee265ca6800fd1a66bce8848ad2a2d from 'figma:asset/208428605eee265ca6800fd1a66bce8848ad2a2d.png';
 import image_71b37b995376e26b7e4591351de7d4e8678d8ecb from 'figma:asset/71b37b995376e26b7e4591351de7d4e8678d8ecb.png';
-import image_7d729140b826089d5a1eb2eda08583eab6e0c939 from 'figma:asset/7d729140b826089d5a1eb2eda08583eab6e0c939.png';
-import image_d41f58b7312c45c814c4af3d9466803316700c6d from 'figma:asset/d41f58b7312c45c814c4af3d9466803316700c6d.png';
-import image_fe88b8a5d2edd2b2ab4e9e87ae7a7d5c6563f2bd from 'figma:asset/fe88b8a5d2edd2b2ab4e9e87ae7a7d5c6563f2bd.png';
-import image_646336dcf79507740d618e1ab6812dfab7b5f2a8 from 'figma:asset/646336dcf79507740d618e1ab6812dfab7b5f2a8.png';
-import image_78bcc4cd397289537dc51ff24bba5f65c610e007 from 'figma:asset/78bcc4cd397289537dc51ff24bba5f65c610e007.png';
+import image_7d729140b826089d5a1eb2eda08583eab6e0c939 from 'figma:asset/new images no bg/ai system/6_ais-2.png';
+import image_d41f58b7312c45c814c4af3d9466803316700c6d from 'figma:asset/new images no bg/ai system/5_ais-1.png';
+import image_fe88b8a5d2edd2b2ab4e9e87ae7a7d5c6563f2bd from 'figma:asset/new images no bg/ai system/4_Deel AI signature-2.png';
+import image_646336dcf79507740d618e1ab6812dfab7b5f2a8 from 'figma:asset/new images no bg/ai system/3_Deel AI signature.png';
+import image_78bcc4cd397289537dc51ff24bba5f65c610e007 from 'figma:asset/new images no bg/ai system/2_Deel AI signature-1.png';
 import image_04c39d94ef988dabe94d57921ce37a498950970f from 'figma:asset/04c39d94ef988dabe94d57921ce37a498950970f.png';
-import image_f19d971b50bd77036f16ba270b5fa65217e90a96 from 'figma:asset/f19d971b50bd77036f16ba270b5fa65217e90a96.png';
+import image_f19d971b50bd77036f16ba270b5fa65217e90a96 from 'figma:asset/new images no bg/ai filter/3_Frame 2055247789.png';
 import image_76eb2c51d62b6eed5f6b13f2d9ce38d6aefb7f2f from 'figma:asset/76eb2c51d62b6eed5f6b13f2d9ce38d6aefb7f2f.png';
-import image_1d322c3759e4a139d69e8b68cfeca49b7837aacd from 'figma:asset/1d322c3759e4a139d69e8b68cfeca49b7837aacd.png';
+import image_1d322c3759e4a139d69e8b68cfeca49b7837aacd from 'figma:asset/new images no bg/sidebar/4_Frame 2055247836.png';
 import image_b90f7641b60c9662bf96e7caa41588329bff9a76 from 'figma:asset/b90f7641b60c9662bf96e7caa41588329bff9a76.png';
 import image_2f22a6c60bcc3ce519f6648e3be0c5be3c076c99 from 'figma:asset/2f22a6c60bcc3ce519f6648e3be0c5be3c076c99.png';
 import image_edabec70d4865acc39293866dc20289de340b412 from 'figma:asset/edabec70d4865acc39293866dc20289de340b412.png';
@@ -50,9 +45,9 @@ import image_14fcafb3504f9ea0cf411aedd57bf86a6debcf91 from 'figma:asset/14fcafb3
 import image_d25ad0c7defe0f31c4532f9d5c3a4ee993df5696 from 'figma:asset/d25ad0c7defe0f31c4532f9d5c3a4ee993df5696.png';
 import image_98aad779c6f5cd4959fcd8ad715a67a39398e263 from 'figma:asset/98aad779c6f5cd4959fcd8ad715a67a39398e263.png';
 import image_157a410b45dc20ee5402a43808c58bd3a2a1dcff from 'figma:asset/157a410b45dc20ee5402a43808c58bd3a2a1dcff.png';
-import image_a6e288138682fabc78bf63691c76aead1a147ff4 from 'figma:asset/a6e288138682fabc78bf63691c76aead1a147ff4.png';
+import image_a6e288138682fabc78bf63691c76aead1a147ff4 from 'figma:asset/new images no bg/sidebar/5_Frame 2055247763.png';
 import image_f3e8868f741f7f56400d82a0562180d5686d518e from 'figma:asset/f3e8868f741f7f56400d82a0562180d5686d518e.png';
-import image_697e1671b4060635802024b4aa3d284414e4d1ee from 'figma:asset/697e1671b4060635802024b4aa3d284414e4d1ee.png';
+import image_697e1671b4060635802024b4aa3d284414e4d1ee from 'figma:asset/new images no bg/sidebar/3_4.1.png';
 import image_bbe20fce932637c8872a9a0c168ba0601ccae868 from 'figma:asset/bbe20fce932637c8872a9a0c168ba0601ccae868.png';
 import image_c138385fb9b73980230fe3fe27cdbb2f95983c9b from 'figma:asset/c138385fb9b73980230fe3fe27cdbb2f95983c9b.png';
 import image_e2ea81540a01142a3a2fa93889862a0562ac690f from 'figma:asset/e2ea81540a01142a3a2fa93889862a0562ac690f.png';
@@ -79,6 +74,11 @@ import image_6b960c4c5e9310dcd3958aa0568b980ae8c8f529 from 'figma:asset/6b960c4c
 import image_7329a76d0e9261527035a9910fa3e7a60dfb741f from 'figma:asset/7329a76d0e9261527035a9910fa3e7a60dfb741f.png';
 import image_3200fbbe47c92225a98f88677ab6b4a2395be296 from 'figma:asset/3200fbbe47c92225a98f88677ab6b4a2395be296.png';
 import image_cd250449bf36819c0e2a695662a62fbb85196462 from 'figma:asset/cd250449bf36819c0e2a695662a62fbb85196462.png';
+import image_ai_system_ais4 from 'figma:asset/new images no bg/ai system/8_ais-4.png';
+import image_ai_system_ais5 from 'figma:asset/new images no bg/ai system/9_ais-5.png';
+import image_ai_system_docs from 'figma:asset/new images no bg/ai system/10_documentation.png';
+import image_proprioo_detail3 from 'figma:asset/new images no bg/proprioo/4_8.5.png';
+import image_ai_system_old_cover from 'figma:asset/new images no bg/ai system/Old cover/0_Container.png';
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
 import { ArrowLeft } from "lucide-react";
@@ -260,7 +260,7 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                 className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5"
             >
                 <img
-                    src={project.id === '2' ? image_ai_filter_2 : project.image}
+                    src={project.id === '1' ? image_ai_system_old_cover : project.id === '2' ? image_ai_filter_2 : project.image}
                     alt={project.title}
                     className="w-full h-auto object-cover"
                     loading="eager"
@@ -354,7 +354,7 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                     )}
 
                     {/* Next image if available */}
-                    {project.additionalImages.length > 1 && project.id !== '2' && project.id !== '3' && project.id !== '4' && project.id !== '5' && project.id !== '6' && project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && (
+                    {project.additionalImages.length > 1 && project.id !== '1' && project.id !== '2' && project.id !== '3' && project.id !== '4' && project.id !== '5' && project.id !== '6' && project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && (
                         <>
                              <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
                                 <img src={project.additionalImages[1]} alt="Project Detail 2" className="w-full h-auto object-cover" loading="lazy" />
@@ -362,16 +362,14 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                         </>
                     )}
 
-                    {/* Urban Flux Special: Render image 3 (index 2) full width */}
-                     {project.id === '2' && project.additionalImages.length > 2 && (
-                         <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                            <img src={project.additionalImages[2]} alt="Project Detail 3" className="w-full h-auto object-cover" loading="lazy" />
-                        </div>
-                    )}
-
-                    {/* AI Filter (ID 2) Extra Images */}
+                    {/* AI Filter (ID 2) Extra Images — images shown in folder order: 2, 3, 4, 5 */}
                     {project.id === '2' && (
                         <>
+                             {/* Image 2 — right after challenge */}
+                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                                <img src={image_2c9d546db85fe10ba5d5193105902d360606562a} alt="AI Filter Detail 2" className="w-full h-auto object-cover" loading="lazy" />
+                            </div>
+
                              {/* Exploration Section */}
                              <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-4 lg:gap-12 px-6 lg:px-[144px] py-[56px]">
                                 <div>
@@ -383,8 +381,10 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                                    </p>
                                 </div>
                              </div>
+
+                             {/* Image 3 */}
                              <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <img src={image_2c9d546db85fe10ba5d5193105902d360606562a} alt="AI Filter Detail 5" className="w-full h-auto object-cover" loading="lazy" />
+                                <img src={image_f19d971b50bd77036f16ba270b5fa65217e90a96} alt="AI Filter Detail 3" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
 
                             {/* Solution Section for Deel AI Filter */}
@@ -399,15 +399,14 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                                </div>
                             </div>
 
-                            {/* New Independent Image 1 */}
-                            {/* New Independent Image 2 */}
+                            {/* Image 4 */}
                              <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <img src={image_f19d971b50bd77036f16ba270b5fa65217e90a96} alt="AI Filter New Independent 2" className="w-full h-auto object-cover" loading="lazy" />
+                                <img src={image_0e6c0f9d5122d7ec1b975bad36cf444dcc8d2a0c} alt="AI Filter Detail 4" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
 
-                            {/* 7 Placeholder Images */}
+                            {/* Image 5 */}
                              <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <img src={image_0e6c0f9d5122d7ec1b975bad36cf444dcc8d2a0c} alt="Placeholder 2" className="w-full h-auto object-cover" loading="lazy" />
+                                <img src={project.additionalImages[2]} alt="AI Filter Detail 5" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
 
 
@@ -454,7 +453,17 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                              <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
                                 <img src={image_ae7d83864749d0a9f5f94138a6b3467b94535342} alt="Proprioo Detail 2" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
+                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                                <img src={image_proprioo_detail3} alt="Proprioo Detail 3" className="w-full h-auto object-cover" loading="lazy" />
+                            </div>
                         </>
+                    )}
+
+                    {/* AI System: image 2 between Challenge and Solution */}
+                    {project.id === '1' && (
+                        <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                            <ImageWithFallback src={image_78bcc4cd397289537dc51ff24bba5f65c610e007} alt="AI System Detail 2" className="w-full h-auto object-cover" loading="lazy" />
+                        </div>
                     )}
 
                     {/* Solution Section */}
@@ -475,7 +484,7 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                     )}
 
                     {/* First additional image (Full width) */}
-                    {project.id !== '5' && project.id !== '2' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && (
+                    {project.id !== '1' && project.id !== '5' && project.id !== '2' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && (
                         <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
                             <img src={project.id === '7' ? image_7d06fcacd31da9ee5c8ad7914f5e6b38d500a82c : project.additionalImages?.[0]} alt="Project Detail 1" className="w-full h-auto object-cover" loading="lazy" />
                         </div>
@@ -484,36 +493,19 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
 
 
                     {/* Remaining additional images (Full width) */}
-                    {project.additionalImages.length > 3 && project.id !== '5' && project.id !== '6' && project.id !== '3' && project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && project.additionalImages.slice(3, project.id === '1' ? 4 : undefined).map((img, index) => (
+                    {project.additionalImages.length > 3 && project.id !== '1' && project.id !== '5' && project.id !== '6' && project.id !== '3' && project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && project.additionalImages.slice(3).map((img, index) => (
                         <div key={index + 3} className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
                             <img src={img} alt={`Project Detail ${index + 4}`} className="w-full h-auto object-cover" loading="lazy" />
                         </div>
                     ))}
 
-                    {/* 6 Additional Placeholder Images - ONLY for Deel AI System (ID 1) */}
+                    {/* Additional Images - ONLY for Deel AI System (ID 1) — images 3–10 in order */}
                     {project.id === '1' && (
                         <>
-                            {/* New Independent Images Added by Request */}
                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <ImageWithFallback 
-                                    src={image_78bcc4cd397289537dc51ff24bba5f65c610e007} 
-                                    alt="New Project Detail 1" 
-                                    className="w-full h-auto object-cover" 
-                                    loading="lazy"
-                                />
-                            </div>
-                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <ImageWithFallback 
-                                    src={image_646336dcf79507740d618e1ab6812dfab7b5f2a8} 
-                                    alt="New Project Detail 2" 
-                                    className="w-full h-auto object-cover" 
-                                    loading="lazy"
-                                />
-                            </div>
-                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <ImageWithFallback 
-                                    src={image_fe88b8a5d2edd2b2ab4e9e87ae7a7d5c6563f2bd} 
-                                    alt="New Project Detail 3" 
+                                <ImageWithFallback
+                                    src={image_646336dcf79507740d618e1ab6812dfab7b5f2a8}
+                                    alt="New Project Detail 2"
                                     className="w-full h-auto object-cover" 
                                     loading="lazy"
                                 />
@@ -537,6 +529,15 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
 
                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
                                 <img src={image_4ed47e70212ef993d5a438705c2e9ba3d23ec7a9} alt="Project Detail Placeholder 8" className="w-full h-auto object-cover" loading="lazy" />
+                            </div>
+                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                                <ImageWithFallback src={image_ai_system_ais4} alt="New Project Detail 7" className="w-full h-auto object-cover" loading="lazy" />
+                            </div>
+                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                                <ImageWithFallback src={image_ai_system_ais5} alt="New Project Detail 8" className="w-full h-auto object-cover" loading="lazy" />
+                            </div>
+                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                                <ImageWithFallback src={image_ai_system_docs} alt="New Project Detail 9" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
                         </>
                     )}

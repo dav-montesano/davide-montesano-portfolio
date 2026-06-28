@@ -1,21 +1,21 @@
-import image_picky_cover from 'figma:asset/new images no bg/picky/1_cover-image-inpage.png';
-import image_ai_filter_cover from 'figma:asset/ai-filter-cover.png';
-import image_marketplace_cover from 'figma:asset/marketplace-mkt-cover.png';
-import image_marketplace_1 from 'figma:asset/marketplace-mkt-1.png';
-import image_marketplace_2 from 'figma:asset/marketplace-mkt-2.png';
-import image_marketplace_3 from 'figma:asset/marketplace-mkt-3.png';
-import image_marketplace_4 from 'figma:asset/marketplace-mkt-4.png';
-import image_picky_1 from 'figma:asset/picky-1.png';
-import image_picky_2 from 'figma:asset/picky-2.png';
-import image_picky_3 from 'figma:asset/picky-3.png';
-import image_picky_4 from 'figma:asset/picky-4.png';
+import image_picky_cover from 'figma:asset/new images no bg/picky/1_cover-image-inpage-2.png';
+import image_ai_filter_cover from 'figma:asset/new images no bg/ai filter/_ai-filter-cover-new-7-NEWNEW.png';
+import image_marketplace_cover from 'figma:asset/new images no bg/marketplace/_cover-image-inpage-new 0.png';
+import image_marketplace_1 from 'figma:asset/new images no bg/marketplace/2_image-mkt-1.png';
+import image_marketplace_2 from 'figma:asset/new images no bg/marketplace/3_image-mkt-2.png';
+import image_marketplace_3 from 'figma:asset/new images no bg/marketplace/4_image-mkt-3.png';
+import image_marketplace_4 from 'figma:asset/new images no bg/marketplace/5_image-mkt-4.png';
+import image_picky_1 from 'figma:asset/new images no bg/picky/5_image-1.png';
+import image_picky_2 from 'figma:asset/new images no bg/picky/3_image-2.png';
+import image_picky_3 from 'figma:asset/new images no bg/picky/4_image-3.png';
+import image_picky_4 from 'figma:asset/new images no bg/picky/2_image-4.png';
 import image_d6c25ae3e31a247fcc600e46f81573bdfc0bd130 from 'figma:asset/d6c25ae3e31a247fcc600e46f81573bdfc0bd130.png';
 import image_ca755fe3c9ffc4cfc91459b23bc587e290f1b0f6 from 'figma:asset/ca755fe3c9ffc4cfc91459b23bc587e290f1b0f6.png';
-import image_fafdb4152ec1cb5cf08b3818efc9de507ed40358 from 'figma:asset/fafdb4152ec1cb5cf08b3818efc9de507ed40358.png';
-import image_caa01d393816a29f00f51ad49af80e1712df0a9f from 'figma:asset/caa01d393816a29f00f51ad49af80e1712df0a9f.png';
-import image_368521982b3a8bc9353622c677a893f6ea77f86b from 'figma:asset/368521982b3a8bc9353622c677a893f6ea77f86b.png';
-import image_35a7b76cd34b5f3d6bacd336d65ddce1906a46ce from 'figma:asset/35a7b76cd34b5f3d6bacd336d65ddce1906a46ce.png';
-import image_99cd40897974eea898b95d74878386bc6fee98e1 from 'figma:asset/99cd40897974eea898b95d74878386bc6fee98e1.png';
+import image_fafdb4152ec1cb5cf08b3818efc9de507ed40358 from 'figma:asset/new images no bg/proprioo/0_8.0.png';
+import image_caa01d393816a29f00f51ad49af80e1712df0a9f from 'figma:asset/new images no bg/Casavo/0_7.0.png';
+import image_368521982b3a8bc9353622c677a893f6ea77f86b from 'figma:asset/new images no bg/sidebar/0_1_Frame 2055247806.png';
+import image_35a7b76cd34b5f3d6bacd336d65ddce1906a46ce from 'figma:asset/new images no bg/ai search/_ai-search-cover-new-NEWNEW.png';
+import image_99cd40897974eea898b95d74878386bc6fee98e1 from 'figma:asset/new images no bg/ai system/New cover/_ai-system-cover-NEW.png';
 import image_c4b5898d2e6a7170b0a1755736d1b5e8808ba31c from 'figma:asset/c4b5898d2e6a7170b0a1755736d1b5e8808ba31c.png';
 import image_e1c6329a0d3e089d2d71032b8757b26f74ae4a26 from 'figma:asset/e1c6329a0d3e089d2d71032b8757b26f74ae4a26.png';
 import image_5e9d5c27ad432844aa13438cb57db229e751a209 from 'figma:asset/5e9d5c27ad432844aa13438cb57db229e751a209.png';
@@ -23,6 +23,12 @@ import image_e923b8042cf9fec20019abd0287dfccab4905c1f from 'figma:asset/e923b804
 import image_4974265b55853b93eb9abf93f4eeb943c755118e from 'figma:asset/4974265b55853b93eb9abf93f4eeb943c755118e.png';
 import image_66970a30c9687a3cac0a15b282f77e4068ef94dd from 'figma:asset/66970a30c9687a3cac0a15b282f77e4068ef94dd.png';
 import image_e2ea81540a01142a3a2fa93889862a0562ac690f from 'figma:asset/e2ea81540a01142a3a2fa93889862a0562ac690f.png';
+import image_ai_filter_frame5 from 'figma:asset/new images no bg/ai filter/5_Frame 2055247790.png';
+import image_ai_system_sig1 from 'figma:asset/new images no bg/ai system/2_Deel AI signature-1.png';
+import image_ai_system_sig2 from 'figma:asset/new images no bg/ai system/3_Deel AI signature.png';
+import image_ai_search_container from 'figma:asset/new images no bg/ai search/0_1_Container.png';
+import image_ai_search_43 from 'figma:asset/new images no bg/ai search/4_3.3..png';
+import image_sidebar_42 from 'figma:asset/new images no bg/sidebar/2_4.2.png';
 import image_f5b17c63f9b7f637488a8ff1cb7c07f9440bb947 from 'figma:asset/f5b17c63f9b7f637488a8ff1cb7c07f9440bb947.png';
 import image_1b085a9a948906eeda6a424943eb398477726985 from 'figma:asset/1b085a9a948906eeda6a424943eb398477726985.png';
 import image_f399d50ecad1a86343397b8b169c33f426467c77 from 'figma:asset/f399d50ecad1a86343397b8b169c33f426467c77.png';
@@ -146,8 +152,8 @@ export const PROJECTS = [
     description: "A search field that understands intent transforming simple queries into multi-layered filters.",
     additionalImages: [
         image_e2ea81540a01142a3a2fa93889862a0562ac690f,
-        "https://images.unsplash.com/photo-1757267898580-75195d47a8dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBwdWJsaWMlMjBwYXJrJTIwY29wZW5oYWdlbiUyMGFyY2hpdGVjdHVyZXxlbnwxfHx8fDE3NjY5MzYwNTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-        image_e1c6329a0d3e089d2d71032b8757b26f74ae4a26
+        image_e1c6329a0d3e089d2d71032b8757b26f74ae4a26,
+        image_ai_filter_frame5,
     ],
     content: {
         contribution: "UX design, Interaction design, Design systems",
@@ -194,10 +200,10 @@ export const PROJECTS = [
     image: image_99cd40897974eea898b95d74878386bc6fee98e1,
     description: "A unified AI foundation adopted across the platform.",
     additionalImages: [
-        image_66b1f92fed26c231654c945411faee2ad2cf2c8d,
+        image_ai_system_sig1,
         image_e5ef6fb7b94c2775d2010d1dca50a8b54de69ed0,
         image_b71054c7f42dfa4cfc470f15af8c0be98ff0cfba,
-        image_77ab92ebaeb031a2a1873673bcbf8f450299fa57,
+        image_ai_system_sig2,
         image_f399d50ecad1a86343397b8b169c33f426467c77,
         image_1b085a9a948906eeda6a424943eb398477726985
     ],
@@ -223,9 +229,9 @@ export const PROJECTS = [
     image: image_35a7b76cd34b5f3d6bacd336d65ddce1906a46ce,
     description: "Instant AI insights from a simple search.",
     additionalImages: [
-        image_e01efe10dbaf81f7a237a452bb3c75193346e3e8,
+        image_ai_search_43,
         image_d6c25ae3e31a247fcc600e46f81573bdfc0bd130,
-        image_d2e5d1ca35c48e69f99c1aa38ad2de40e996b055,
+        image_ai_search_container,
         image_4974265b55853b93eb9abf93f4eeb943c755118e
     ],
     content: {
@@ -254,8 +260,8 @@ export const PROJECTS = [
     image: image_368521982b3a8bc9353622c677a893f6ea77f86b,
     description: "Consistent navigation across teams.",
     additionalImages: [
-        "https://images.unsplash.com/photo-1613442301287-4fa478efd9ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaW5hbmNlJTIwaW52ZXN0bWVudCUyMG1vYmlsZSUyMGFwcCUyMGludGVyZmFjZSUyMGNsZWFufGVufDF8fHx8MTc2Njc2MTU1Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
         image_e923b8042cf9fec20019abd0287dfccab4905c1f,
+        image_sidebar_42,
     ],
     content: {
         contribution: "UX design, Interaction design, Design systems",
