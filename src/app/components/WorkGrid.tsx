@@ -45,10 +45,10 @@ export const WorkGrid = ({ projects, onProjectClick, introContent }: WorkGridPro
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
       style={{ willChange: "transform, opacity" }}
-      className="grid grid-cols-1 gap-[16px] min-[960px]:grid-cols-2 max-w-[1100px] mx-auto mt-6"
+      className="grid grid-cols-1 gap-[16px] min-[640px]:grid-cols-2 min-[1200px]:grid-cols-3 max-w-[1100px] mx-auto mt-6"
     >
       {introContent && (
-        <div className="aspect-auto md:aspect-[4/3] w-full">
+        <div className="aspect-auto min-[640px]:aspect-[4/3] min-[1200px]:col-span-2 min-[1200px]:aspect-auto w-full">
             {introContent}
         </div>
       )}
@@ -56,7 +56,7 @@ export const WorkGrid = ({ projects, onProjectClick, introContent }: WorkGridPro
         <motion.div
           key={project.id}
           onClick={() => onProjectClick(project.id)}
-          className="group relative cursor-pointer overflow-hidden rounded-[36px] aspect-[4/3]"
+          className={`group relative cursor-pointer overflow-hidden rounded-[36px] aspect-[4/3] ${introContent && index === 0 ? 'min-[1200px]:aspect-auto min-[1200px]:h-full' : ''} ${introContent && index === 3 ? 'min-[1200px]:row-span-2 min-[1200px]:aspect-auto min-[1200px]:min-h-[550px]' : ''}`}
           style={{ backgroundColor: CARD_COLORS[index % CARD_COLORS.length] }}
           whileHover={{ backgroundColor: CARD_HOVER_COLORS[index % CARD_HOVER_COLORS.length] }}
           transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}

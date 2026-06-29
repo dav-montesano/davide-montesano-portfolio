@@ -1,14 +1,77 @@
-import { motion, LayoutGroup, useScroll, useTransform } from "motion/react";
-import { X, Menu } from "lucide-react";
+import { motion, useScroll, useTransform } from "motion/react";
 import Dav from "./Logo";
-import ChatIcon from "./ChatIcon";
 
 interface HeaderProps {
   activeTab: string;
   onTabChange: (tab: string) => void;
+  isDark: boolean;
+  onSetDark: (v: boolean) => void;
 }
 
-export const Header = ({ activeTab, onTabChange }: HeaderProps) => {
+function SkeuoToggle({ isDark, onSetDark }: { isDark: boolean; onSetDark: (v: boolean) => void }) {
+  return (
+    <button
+      onClick={() => onSetDark(!isDark)}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      style={{
+        width: 64,
+        height: 36,
+        borderRadius: 999,
+        flexShrink: 0,
+        padding: 4,
+        border: isDark ? "1px solid rgba(255,255,255,0.09)" : "1px solid rgba(0,0,0,0.1)",
+        cursor: "pointer",
+        position: "relative",
+        background: isDark ? "#1a1a1a" : "#d4d4db",
+        transition: "background 0.3s ease, border-color 0.3s ease",
+        display: "flex",
+        alignItems: "center",
+      }}
+    >
+      {/* knob */}
+      <motion.div
+        animate={{ x: isDark ? 28 : 0 }}
+        transition={{ type: "spring", stiffness: 400, damping: 30 }}
+        style={{
+          width: 28,
+          height: 28,
+          borderRadius: "50%",
+          background: "#111",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexShrink: 0,
+        }}
+      >
+        {isDark ? (
+          /* Sun icon */
+          <svg viewBox="0 0 24 24" width={14} height={14}>
+            <circle cx="12" cy="12" r="4" fill="#fde68a" />
+            {[0,45,90,135,180,225,270,315].map(deg => (
+              <line key={deg}
+                x1={12 + 6.5 * Math.cos(deg * Math.PI / 180)}
+                y1={12 + 6.5 * Math.sin(deg * Math.PI / 180)}
+                x2={12 + 9 * Math.cos(deg * Math.PI / 180)}
+                y2={12 + 9 * Math.sin(deg * Math.PI / 180)}
+                stroke="#fde68a" strokeWidth="2" strokeLinecap="round"
+              />
+            ))}
+          </svg>
+        ) : (
+          /* Moon icon */
+          <svg viewBox="0 0 24 24" width={13} height={13}>
+            <path
+              d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"
+              fill="#fde68a"
+            />
+          </svg>
+        )}
+      </motion.div>
+    </button>
+  );
+}
+
+export const Header = ({ activeTab, onTabChange, isDark, onSetDark }: HeaderProps) => {
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 50], [0, 0.9]);
 
@@ -22,9 +85,7 @@ export const Header = ({ activeTab, onTabChange }: HeaderProps) => {
         </div>
 
         <div className="pointer-events-auto flex items-center gap-4">
-          <div className="w-[48px] h-[46px]">
-            <ChatIcon />
-          </div>
+          <SkeuoToggle isDark={isDark} onSetDark={onSetDark} />
         </div>
       </div>
 
