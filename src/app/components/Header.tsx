@@ -41,6 +41,14 @@ function SkeuoToggle({ isDark, onSetDark }: { isDark: boolean; onSetDark: (v: bo
         }}
       >
         {isDark ? (
+          /* Moon icon */
+          <svg viewBox="0 0 24 24" width={15} height={15}>
+            <path
+              d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"
+              fill="#fde68a"
+            />
+          </svg>
+        ) : (
           /* Sun icon */
           <svg viewBox="0 0 24 24" width={16} height={16}>
             <circle cx="12" cy="12" r="4" fill="#fde68a" />
@@ -53,14 +61,6 @@ function SkeuoToggle({ isDark, onSetDark }: { isDark: boolean; onSetDark: (v: bo
                 stroke="#fde68a" strokeWidth="2" strokeLinecap="round"
               />
             ))}
-          </svg>
-        ) : (
-          /* Moon icon */
-          <svg viewBox="0 0 24 24" width={15} height={15}>
-            <path
-              d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"
-              fill="#fde68a"
-            />
           </svg>
         )}
       </motion.div>
