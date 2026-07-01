@@ -1,9 +1,9 @@
 import { motion } from "motion/react";
 import imgSpotifyPrimaryLogoRgbGreen1 from "figma:asset/8246242abee5e59336f06e2b156162defd3b8a1d.png";
 
-export default function ContactCard() {
+export default function ContactCard({ isDark }: { isDark?: boolean }) {
   return (
-    <div className="@container bg-white content-stretch flex flex-wrap gap-[49px] items-end overflow-clip px-[clamp(20px,5cqi,32px)] py-[clamp(16px,4cqi,24px)] relative rounded-[32px] size-full" data-name="ContactCard">
+    <div className={`@container content-stretch flex flex-wrap gap-[49px] items-end overflow-clip px-[clamp(20px,5cqi,32px)] py-[clamp(16px,4cqi,24px)] relative rounded-[32px] size-full ${isDark ? "bg-[#2C2C30]" : "bg-white"}`} data-name="ContactCard">
       <div className="basis-auto md:basis-0 content-stretch flex flex-col grow h-auto md:h-full items-start justify-between min-h-px min-w-px relative shrink-0">
         <div className="h-[min(50px,20cqmin)] relative shrink-0 w-[min(50px,20cqmin)]" data-name="Spotify_Primary_Logo_RGB_Green 1">
           <img alt="" className="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none size-full" src={imgSpotifyPrimaryLogoRgbGreen1} />
@@ -29,8 +29,8 @@ export default function ContactCard() {
             </div>
             <span className="text-[12px]">Offline. Last played</span>
           </div>
-          <p className="font-['Inter:Bold',sans-serif] font-bold relative shrink-0 text-[16px] text-black w-full">Stella</p>
-          <p className="font-['Inter:Regular',sans-serif] font-normal relative shrink-0 text-[14px] text-black w-full">Ultramarine</p>
+          <p className={`font-['Inter:Bold',sans-serif] font-bold relative shrink-0 text-[16px] w-full ${isDark ? "text-white" : "text-black"}`}>Stella</p>
+          <p className={`font-['Inter:Regular',sans-serif] font-normal relative shrink-0 text-[14px] w-full ${isDark ? "text-white/70" : "text-black"}`}>Ultramarine</p>
         </div>
       </div>
     </div>

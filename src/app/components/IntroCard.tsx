@@ -4,18 +4,18 @@ import { RotateCw } from "lucide-react";
 import imgScreenshot20260111At1935421 from "figma:asset/1c5c420f11328ce390eae5acc56b299dbb6bbfc5.png";
 import imgGreeting from "figma:asset/39873b71415016b901f04aac668480d2e33271df.png";
 
-export default function Container() {
+export default function Container({ isDark }: { isDark?: boolean }) {
   const [isGreeting, setIsGreeting] = useState(false);
 
   return (
-    <div className="@container bg-white content-stretch flex flex-col gap-[clamp(8px,3cqi,16px)] items-start justify-center overflow-clip px-[clamp(20px,5cqi,32px)] py-[clamp(16px,4cqi,24px)] relative rounded-[32px] w-full h-auto md:h-full" data-name="Container">
+    <div className={`@container content-stretch flex flex-col gap-[clamp(8px,3cqi,16px)] items-start justify-center overflow-clip px-[clamp(20px,5cqi,32px)] py-[clamp(16px,4cqi,24px)] relative rounded-[32px] w-full h-auto md:h-full ${isDark ? "bg-[#2C2C30]" : "bg-white"}`} data-name="Container">
       {/* Toggle Button */}
-      <button 
+      <button
         onClick={() => setIsGreeting(!isGreeting)}
-        className="absolute top-[clamp(16px,4cqi,24px)] right-[clamp(20px,5cqi,32px)] z-10 bg-white hover:bg-gray-50 transition-colors cursor-pointer flex items-center justify-center gap-[min(6px,2cqmin)] px-[min(16px,5cqmin)] py-[min(8px,2.5cqmin)] rounded-full border border-[#E5E5E5] outline-none"
+        className={`absolute top-[clamp(16px,4cqi,24px)] right-[clamp(20px,5cqi,32px)] z-10 transition-colors cursor-pointer flex items-center justify-center gap-[min(6px,2cqmin)] px-[min(16px,5cqmin)] py-[min(8px,2.5cqmin)] rounded-full border outline-none ${isDark ? "bg-[#3A3A3E] hover:bg-[#45454A] border-white/10" : "bg-white hover:bg-gray-50 border-[#E5E5E5]"}`}
       >
-        <RotateCw className="w-[min(12px,4cqmin)] h-[min(12px,4cqmin)] text-[#171717]" />
-        <span className="font-medium leading-[20px] text-[#171717] text-[min(12px,4cqmin)] whitespace-nowrap tracking-[-0.15px]">
+        <RotateCw className={`w-[min(12px,4cqmin)] h-[min(12px,4cqmin)] ${isDark ? "text-white" : "text-[#171717]"}`} />
+        <span className={`font-medium leading-[20px] text-[min(12px,4cqmin)] whitespace-nowrap tracking-[-0.15px] ${isDark ? "text-white" : "text-[#171717]"}`}>
           {isGreeting ? "Back to work" : "See greeting"}
         </span>
       </button>
@@ -52,10 +52,10 @@ export default function Container() {
           </div>
         </div>
       </div>
-      <p className="line-clamp-none md:line-clamp-3 font-['Inter',sans-serif] font-normal leading-[150%] min-w-full not-italic overflow-ellipsis overflow-hidden relative shrink-0 text-[clamp(11px,4cqi,14px)] text-black w-[min-content]">
+      <p className={`line-clamp-none md:line-clamp-3 font-['Inter',sans-serif] font-normal leading-[150%] min-w-full not-italic overflow-ellipsis overflow-hidden relative shrink-0 text-[clamp(11px,4cqi,14px)] w-[min-content] ${isDark ? "text-white" : "text-black"}`}>
         <span>{`I'm `}</span>
         <span className="font-['Inter:Bold',sans-serif] font-bold text-[clamp(18px,7cqi,24px)]">Dav</span>
-        <span>{`, `}</span>Staff Product Designer with a systems-thinking approach and a focus on scalable UX frameworks. I use design to bring clarity to complex products and shape how they evolve over time.
+        <span>{`, `}</span>Staff Product Designer and builder. AI is my leverage, craft is my language, together they turn vision into product people believe in.
       </p>
     </div>
   );

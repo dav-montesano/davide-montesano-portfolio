@@ -64,30 +64,31 @@ export default function App() {
                     introContent={(
                         <div className="w-full flex flex-col gap-[16px] md:grid md:grid-rows-2 md:h-full">
                             {/* Row A: Text */}
-                            <IntroCard />
-        
+                            <IntroCard isDark={isDark} />
+
                             {/* Row B: Bottom Cards */}
                             <div className="w-full h-auto md:h-full grid grid-cols-1 md:grid-cols-2 gap-[16px]">
                                  {/* Map Block */}
                                  <div className="w-full h-auto md:h-full">
-                                    <SpotifyWidget />
+                                    <SpotifyWidget isDark={isDark} />
                                  </div>
-        
+
                                  {/* Socials Block */}
                                  <div className="w-full aspect-[4/3] h-auto md:aspect-auto md:h-full">
-                                    <ContactCard />
+                                    <ContactCard isDark={isDark} />
                                  </div>
                             </div>
                         </div>
                     )}
-                    projects={PROJECTS.filter(p => p.id !== '8' && p.id !== '7')}
+                    projects={PROJECTS.filter(p => p.id !== '8')}
                     onProjectClick={setSelectedProjectId} className="text-[24px] text-left px-[0px] py-[22px] rounded-[36px]"
+                    isDark={isDark}
                 />
             </>
         )}
         
         {activeTab === 'about' && (
-            <AboutPage />
+            <AboutPage isDark={isDark} />
         )}
       </main>
 
@@ -96,6 +97,7 @@ export default function App() {
             <CaseStudy
                 project={selectedProject}
                 onClose={() => setSelectedProjectId(null)}
+                isDark={isDark}
             />
         )}
       </AnimatePresence>

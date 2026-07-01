@@ -14,9 +14,10 @@ interface WorkGridProps {
   projects: Project[];
   onProjectClick: (id: string) => void;
   introContent?: React.ReactNode;
+  isDark?: boolean;
 }
 
-const CARD_COLORS = [
+const CARD_COLORS_LIGHT = [
   "#FFFFFF", // 1. Picky
   "#FFFFFF", // 2. AI Filter
   "#FFFFFF", // 3. Marketplace
@@ -25,6 +26,17 @@ const CARD_COLORS = [
   "#FFFFFF", // 6. Sidebar
   "#FFFFFF", // 7. Casavo
   "#FFFFFF", // 8. Proprioo
+];
+
+const CARD_COLORS_DARK = [
+  "#2C2C30", // 1. Picky
+  "#2C2C30", // 2. AI Filter
+  "#2C2C30", // 3. Marketplace
+  "#2C2C30", // 4. AI System
+  "#2C2C30", // 5. AI Global Search
+  "#2C2C30", // 6. Sidebar
+  "#2C2C30", // 7. Casavo
+  "#2C2C30", // 8. Proprioo
 ];
 
 const CARD_HOVER_COLORS: string[] = [
@@ -38,17 +50,18 @@ const CARD_HOVER_COLORS: string[] = [
   "#86BFE9", // 8. Proprioo
 ];
 
-export const WorkGrid = ({ projects, onProjectClick, introContent }: WorkGridProps) => {
+export const WorkGrid = ({ projects, onProjectClick, introContent, isDark }: WorkGridProps) => {
+  const CARD_COLORS = isDark ? CARD_COLORS_DARK : CARD_COLORS_LIGHT;
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
       style={{ willChange: "transform, opacity" }}
-      className="grid grid-cols-1 gap-[16px] min-[640px]:grid-cols-2 min-[1200px]:grid-cols-3 max-w-[1100px] mx-auto mt-6"
+      className="grid grid-cols-1 gap-[16px] min-[960px]:grid-cols-2 max-w-[1100px] mx-auto mt-6"
     >
       {introContent && (
-        <div className="aspect-auto min-[640px]:aspect-[4/3] min-[1200px]:col-span-2 min-[1200px]:aspect-auto w-full">
+        <div className="aspect-auto md:aspect-[4/3] w-full">
             {introContent}
         </div>
       )}
@@ -56,7 +69,7 @@ export const WorkGrid = ({ projects, onProjectClick, introContent }: WorkGridPro
         <motion.div
           key={project.id}
           onClick={() => onProjectClick(project.id)}
-          className={`group relative cursor-pointer overflow-hidden rounded-[36px] aspect-[4/3] ${introContent && index === 0 ? 'min-[1200px]:aspect-auto min-[1200px]:h-full' : ''} ${introContent && index === 3 ? 'min-[1200px]:row-span-2 min-[1200px]:aspect-auto min-[1200px]:min-h-[550px]' : ''}`}
+          className="group relative cursor-pointer overflow-hidden rounded-[36px] aspect-[4/3]"
           style={{ backgroundColor: CARD_COLORS[index % CARD_COLORS.length] }}
           whileHover={{ backgroundColor: CARD_HOVER_COLORS[index % CARD_HOVER_COLORS.length] }}
           transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}

@@ -13,28 +13,25 @@ function SkeuoToggle({ isDark, onSetDark }: { isDark: boolean; onSetDark: (v: bo
     <button
       onClick={() => onSetDark(!isDark)}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      className={`rounded-full border shadow-[0_4px_16px_rgb(0,0,0,0.14)] backdrop-blur-3xl transition-all ${isDark ? "border-white/10 bg-white/10 hover:bg-white/15" : "border-white/40 bg-neutral-200/50 hover:bg-neutral-200/60"}`}
       style={{
-        width: 64,
-        height: 36,
-        borderRadius: 999,
+        width: 72,
+        height: 40,
         flexShrink: 0,
         padding: 4,
-        border: isDark ? "1px solid rgba(255,255,255,0.09)" : "1px solid rgba(0,0,0,0.1)",
         cursor: "pointer",
         position: "relative",
-        background: isDark ? "#1a1a1a" : "#d4d4db",
-        transition: "background 0.3s ease, border-color 0.3s ease",
         display: "flex",
         alignItems: "center",
       }}
     >
       {/* knob */}
       <motion.div
-        animate={{ x: isDark ? 28 : 0 }}
+        animate={{ x: isDark ? 32 : 0 }}
         transition={{ type: "spring", stiffness: 400, damping: 30 }}
         style={{
-          width: 28,
-          height: 28,
+          width: 32,
+          height: 32,
           borderRadius: "50%",
           background: "#111",
           display: "flex",
@@ -45,7 +42,7 @@ function SkeuoToggle({ isDark, onSetDark }: { isDark: boolean; onSetDark: (v: bo
       >
         {isDark ? (
           /* Sun icon */
-          <svg viewBox="0 0 24 24" width={14} height={14}>
+          <svg viewBox="0 0 24 24" width={16} height={16}>
             <circle cx="12" cy="12" r="4" fill="#fde68a" />
             {[0,45,90,135,180,225,270,315].map(deg => (
               <line key={deg}
@@ -59,7 +56,7 @@ function SkeuoToggle({ isDark, onSetDark }: { isDark: boolean; onSetDark: (v: bo
           </svg>
         ) : (
           /* Moon icon */
-          <svg viewBox="0 0 24 24" width={13} height={13}>
+          <svg viewBox="0 0 24 24" width={15} height={15}>
             <path
               d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"
               fill="#fde68a"
@@ -80,7 +77,7 @@ export const Header = ({ activeTab, onTabChange, isDark, onSetDark }: HeaderProp
       <div className="mx-auto flex w-full max-w-[1100px] h-[58px] items-center justify-between">
         <div className="pointer-events-auto">
           <div className="hidden md:block w-[111px] h-[32px]">
-            <Dav />
+            <Dav isDark={isDark} />
           </div>
         </div>
 
@@ -90,15 +87,15 @@ export const Header = ({ activeTab, onTabChange, isDark, onSetDark }: HeaderProp
       </div>
 
       <div>
-<div className="fixed top-6 left-1/2 z-50 -translate-x-1/2 pointer-events-auto flex items-center gap-1 rounded-full border border-white/40 bg-neutral-200/50 p-1.5 shadow-[0_4px_16px_rgb(0,0,0,0.14)] backdrop-blur-3xl transition-all hover:bg-neutral-200/60">
+<div className={`fixed top-6 left-1/2 z-50 -translate-x-1/2 pointer-events-auto flex items-center gap-1 rounded-full border p-1.5 shadow-[0_4px_16px_rgb(0,0,0,0.14)] backdrop-blur-3xl transition-all ${isDark ? "border-white/10 bg-white/10 hover:bg-white/15" : "border-white/40 bg-neutral-200/50 hover:bg-neutral-200/60"}`}>
         <button
             onClick={() => onTabChange('work')}
-            className={`relative rounded-full px-8 py-3 text-sm transition-all text-neutral-900 ${activeTab !== 'work' ? 'hover:bg-black/5' : ''}`}
+            className={`relative rounded-full px-8 py-3 text-sm transition-all ${isDark ? "text-white" : "text-neutral-900"} ${activeTab !== 'work' ? (isDark ? 'hover:bg-white/10' : 'hover:bg-black/5') : ''}`}
         >
           {activeTab === 'work' && (
             <motion.div
               layoutId="active-pill"
-              className="absolute inset-0 bg-white/80 shadow-sm rounded-full"
+              className={`absolute inset-0 shadow-sm rounded-full ${isDark ? "bg-white/20" : "bg-white/80"}`}
               transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
               style={{ originY: "50%" }}
             />
@@ -109,12 +106,12 @@ export const Header = ({ activeTab, onTabChange, isDark, onSetDark }: HeaderProp
         </button>
         <button
             onClick={() => onTabChange('about')}
-            className={`relative rounded-full px-8 py-3 text-sm transition-all text-neutral-900 ${activeTab !== 'about' ? 'hover:bg-black/5' : ''}`}
+            className={`relative rounded-full px-8 py-3 text-sm transition-all ${isDark ? "text-white" : "text-neutral-900"} ${activeTab !== 'about' ? (isDark ? 'hover:bg-white/10' : 'hover:bg-black/5') : ''}`}
         >
           {activeTab === 'about' && (
             <motion.div
               layoutId="active-pill"
-              className="absolute inset-0 bg-white/80 shadow-sm rounded-full"
+              className={`absolute inset-0 shadow-sm rounded-full ${isDark ? "bg-white/20" : "bg-white/80"}`}
               transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
               style={{ originY: "50%" }}
             />

@@ -16,6 +16,7 @@ import image_69b03ce11bbd06bc2afdd0f1d186526fd3e27a4e from 'figma:asset/69b03ce1
 import image_111d8a6f56f668fb50a3dc030108066775dd7dd2 from 'figma:asset/new images no bg/ai search/2_Frame 2055247763.png';
 import image_0e6c0f9d5122d7ec1b975bad36cf444dcc8d2a0c from 'figma:asset/new images no bg/ai filter/4_Frame 2055247784.png';
 import image_2c9d546db85fe10ba5d5193105902d360606562a from 'figma:asset/new images no bg/ai filter/2_light_Frame 2055247759.png';
+import image_2_dark_ai_filter from 'figma:asset/new images no bg/ai filter/Dark mode/2_dark_Frame 2055247792.png';
 import image_674a7dd467c81a9015d8add679a68fc7b53e0f7b from 'figma:asset/674a7dd467c81a9015d8add679a68fc7b53e0f7b.png';
 import image_4ed47e70212ef993d5a438705c2e9ba3d23ec7a9 from 'figma:asset/new images no bg/ai system/7_ais-3.png';
 import image_48c26cc26b97febd95f7b86cd650aa77c037242a from 'figma:asset/48c26cc26b97febd95f7b86cd650aa77c037242a.png';
@@ -28,10 +29,23 @@ import image_d41f58b7312c45c814c4af3d9466803316700c6d from 'figma:asset/new imag
 import image_fe88b8a5d2edd2b2ab4e9e87ae7a7d5c6563f2bd from 'figma:asset/new images no bg/ai system/4_Deel AI signature-2.png';
 import image_646336dcf79507740d618e1ab6812dfab7b5f2a8 from 'figma:asset/new images no bg/ai system/3_Deel AI signature.png';
 import image_78bcc4cd397289537dc51ff24bba5f65c610e007 from 'figma:asset/new images no bg/ai system/2_Deel AI signature-1.png';
+import image_dark_ais_2 from 'figma:asset/new images no bg/ai system/dark mode/2_dark_Deel AI signature.png';
+import image_dark_ais_3 from 'figma:asset/new images no bg/ai system/dark mode/3_Deel AI signature.png';
+import image_dark_ais_5 from 'figma:asset/new images no bg/ai system/dark mode/5_ais-1.png';
+import image_dark_ais_6 from 'figma:asset/new images no bg/ai system/dark mode/6_ais-2.png';
+import image_dark_ais_7 from 'figma:asset/new images no bg/ai system/dark mode/7_ais-3.png';
+import image_dark_ais_8 from 'figma:asset/new images no bg/ai system/dark mode/8_ais-4.png';
+import image_dark_ais_9 from 'figma:asset/new images no bg/ai system/dark mode/9_ais-5.png';
+import image_dark_ais_10 from 'figma:asset/new images no bg/ai system/dark mode/10_documentation.png';
 import image_04c39d94ef988dabe94d57921ce37a498950970f from 'figma:asset/04c39d94ef988dabe94d57921ce37a498950970f.png';
 import image_f19d971b50bd77036f16ba270b5fa65217e90a96 from 'figma:asset/new images no bg/ai filter/3_Frame 2055247789.png';
 import image_76eb2c51d62b6eed5f6b13f2d9ce38d6aefb7f2f from 'figma:asset/76eb2c51d62b6eed5f6b13f2d9ce38d6aefb7f2f.png';
 import image_1d322c3759e4a139d69e8b68cfeca49b7837aacd from 'figma:asset/new images no bg/sidebar/4_Frame 2055247836.png';
+import image_dark_sidebar_0 from 'figma:asset/new images no bg/sidebar/dark/0_1_Frame 2055247806.png';
+import image_dark_sidebar_2 from 'figma:asset/new images no bg/sidebar/dark/2_4.2.png';
+import image_dark_sidebar_3 from 'figma:asset/new images no bg/sidebar/dark/3_4.1.png';
+import image_dark_sidebar_4 from 'figma:asset/new images no bg/sidebar/dark/4_Frame 2055247835.png';
+import image_dark_sidebar_5 from 'figma:asset/new images no bg/sidebar/dark/5_Frame 2055247763.png';
 import image_b90f7641b60c9662bf96e7caa41588329bff9a76 from 'figma:asset/b90f7641b60c9662bf96e7caa41588329bff9a76.png';
 import image_2f22a6c60bcc3ce519f6648e3be0c5be3c076c99 from 'figma:asset/2f22a6c60bcc3ce519f6648e3be0c5be3c076c99.png';
 import image_edabec70d4865acc39293866dc20289de340b412 from 'figma:asset/edabec70d4865acc39293866dc20289de340b412.png';
@@ -105,9 +119,10 @@ interface Project {
 interface CaseStudyProps {
   project: Project;
   onClose: () => void;
+  isDark?: boolean;
 }
 
-export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
+export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll({ container: containerRef });
   const [showStickyHeader, setShowStickyHeader] = useState(false);
@@ -132,7 +147,7 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: "100%" }}
       transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
-      className="fixed inset-0 z-[60] overflow-y-auto bg-[#F7F5F2] text-[#1D1D1F]"
+      className={`fixed inset-0 z-[60] overflow-y-auto ${isDark ? "bg-[#1D1D1F] text-[#F7F5F2]" : "bg-[#F7F5F2] text-[#1D1D1F]"}`}
     >
       {/* Top Fixed Header (Initial) */}
       <div className="absolute top-0 left-0 right-0 z-50 py-[48px] px-0 md:px-8 flex justify-center pointer-events-none">
@@ -140,7 +155,7 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
           {/* Back Button */}
           <button
             onClick={onClose}
-            className="pointer-events-auto bg-black/5 backdrop-blur-md border border-black/10 hover:bg-black/10 text-[#1D1D1F] px-[16px] py-[10px] rounded-full flex items-center gap-2 transition-all group shrink-0"
+            className={`pointer-events-auto backdrop-blur-md border px-[16px] py-[10px] rounded-full flex items-center gap-2 transition-all group shrink-0 ${isDark ? "bg-white/10 border-white/10 hover:bg-white/20 text-white" : "bg-black/5 border-black/10 hover:bg-black/10 text-[#1D1D1F]"}`}
           >
             <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
             <span className="text-sm font-medium text-[16px]">Home</span>
@@ -149,9 +164,9 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
           {/* Right Text (Fade out on scroll) */}
           <motion.div
             style={{ opacity: useTransform(scrollY, [0, 100], [1, 0]) }}
-            className="block text-right text-[#737373] text-[12px] md:text-[16px] flex-1 min-w-0 md:max-w-xl whitespace-nowrap overflow-hidden text-ellipsis"
+            className={`block text-right text-[12px] md:text-[16px] flex-1 min-w-0 md:max-w-xl whitespace-nowrap overflow-hidden text-ellipsis ${isDark ? "text-white/50" : "text-[#737373]"}`}
           >
-            <span className="text-[#1D1D1F] font-medium">{project.title}</span> — <span className="text-[#737373]">{project.description.replace(/\.$/, "")}</span>
+            <span className={`font-medium ${isDark ? "text-white" : "text-[#1D1D1F]"}`}>{project.title}</span> — <span className={isDark ? "text-white/50" : "text-[#737373]"}>{project.description.replace(/\.$/, "")}</span>
           </motion.div>
         </div>
       </div>
@@ -166,16 +181,16 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
             className="fixed top-6 left-0 right-0 z-50 flex justify-center pointer-events-none"
           >
-            <div className="w-[calc(100%-32px)] max-w-[1004px] pointer-events-auto flex items-center justify-between gap-4 bg-white/80 backdrop-blur-2xl border border-black/10 rounded-full shadow-2xl pt-[16px] pr-[24px] pb-[16px] pl-[16px] px-[24px] py-[16px]">
+            <div className={`w-[calc(100%-32px)] max-w-[1004px] pointer-events-auto flex items-center justify-between gap-4 backdrop-blur-2xl border rounded-full shadow-2xl pt-[16px] pr-[24px] pb-[16px] pl-[16px] px-[24px] py-[16px] ${isDark ? "bg-[#2C2C30]/90 border-white/10" : "bg-white/80 border-black/10"}`}>
               <button
                 onClick={onClose}
-                className="bg-black/5 hover:bg-black/10 text-[#1D1D1F] px-4 py-2 rounded-full flex items-center gap-2 transition-all text-sm font-medium group shrink-0"
+                className={`px-4 py-2 rounded-full flex items-center gap-2 transition-all text-sm font-medium group shrink-0 ${isDark ? "bg-white/10 hover:bg-white/20 text-white" : "bg-black/5 hover:bg-black/10 text-[#1D1D1F]"}`}
               >
                 <ArrowLeft size={14} className="transition-transform group-hover:-translate-x-1" />
                 <span>Home</span>
               </button>
-              <span className="text-sm text-[#737373] pl-4 truncate">
-                <span className="text-[#1D1D1F] font-medium">{project.title}</span> — <span>{project.description.replace(/\.$/, "")}</span>
+              <span className={`text-sm pl-4 truncate ${isDark ? "text-white/50" : "text-[#737373]"}`}>
+                <span className={`font-medium ${isDark ? "text-white" : "text-[#1D1D1F]"}`}>{project.title}</span> — <span>{project.description.replace(/\.$/, "")}</span>
               </span>
             </div>
           </motion.div>
@@ -184,27 +199,27 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
 
       {/* Main Content Wrapper */}
       <div className="w-full max-w-[1600px] mx-auto pb-[48px] md:pt-[142px] md:px-8 pt-[142px] px-2">
-        <div className="w-full max-w-[1100px] mx-auto bg-[#FDFDFD] rounded-[2rem] md:rounded-[3rem] p-[24px] min-h-screen overflow-hidden relative border border-black/5 flex flex-col gap-[48px]">
-            
+        <div className={`w-full max-w-[1100px] mx-auto rounded-[2rem] md:rounded-[3rem] p-[24px] min-h-screen overflow-hidden relative border flex flex-col gap-[48px] ${isDark ? "bg-[#242426] border-white/10" : "bg-[#FDFDFD] border-black/5"}`}>
+
           {/* Intro Section */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 px-0 py-[24px] md:p-[24px]">
             <div>
-              <h1 className="text-[32px] font-semibold tracking-normal leading-[1.2] text-[#1D1D1F]">
+              <h1 className={`text-[32px] font-semibold tracking-normal leading-[1.2] ${isDark ? "text-white" : "text-[#1D1D1F]"}`}>
                 {project.title} —{" "}
-                <span className="text-[#737373] tracking-normal">{project.description.replace(/\.$/, "")}</span>
+                <span className={`tracking-normal ${isDark ? "text-white/50" : "text-[#737373]"}`}>{project.description.replace(/\.$/, "")}</span>
               </h1>
             </div>
 
             <div className="flex flex-col gap-2">
-              <div className="text-lg md:text-xl leading-relaxed text-[#424245]">
+              <div className={`text-lg md:text-xl leading-relaxed ${isDark ? "text-white/70" : "text-[#424245]"}`}>
                  {project.content?.overview ? (
                     <>
-                      <p className="md:hidden text-[16px] text-[#1D1D1F] [&_span]:!text-[#1D1D1F] [&_span]:!font-normal leading-[170%]">
-                        {typeof project.content.overview === 'string' 
+                      <p className={`md:hidden text-[16px] leading-[170%] ${isDark ? "text-white [&_span]:!text-white" : "text-[#1D1D1F] [&_span]:!text-[#1D1D1F]"} [&_span]:!font-normal`}>
+                        {typeof project.content.overview === 'string'
                           ? (project.content.overview.match(/[^\.!\?]+[\.!\?]+/g) || [project.content.overview]).slice(0, 2).join(' ')
                           : project.content.overview}
                       </p>
-                      <p className="hidden md:block text-[16px] text-[#1D1D1F] [&_span]:!text-[#1D1D1F] [&_span]:!font-normal leading-[170%]">
+                      <p className={`hidden md:block text-[16px] leading-[170%] ${isDark ? "text-white [&_span]:!text-white" : "text-[#1D1D1F] [&_span]:!text-[#1D1D1F]"} [&_span]:!font-normal`}>
                         {project.id === '1' 
                             ? "I led the design of Deel’s AI system and identity, defining the visual language and core component foundations used across AI features on the platform. I established the interaction models for AI-enabled inputs, covering how users type, trigger, refine, and receive AI assistance, and translated these behaviors into scalable patterns adopted across teams."
                             : project.id === '2'
@@ -241,12 +256,12 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
               </div>
 
               <div className="text-sm">
-                <span className="font-normal text-[#737373]">Role: </span>
-                <span className="text-[#737373]">{project.role}</span>
+                <span className={`font-normal ${isDark ? "text-white/50" : "text-[#737373]"}`}>Role: </span>
+                <span className={isDark ? "text-white/50" : "text-[#737373]"}>{project.role}</span>
               </div>
               <div className="text-sm">
-                <span className="font-normal text-[#737373]">Contribution: </span>
-                <span className="text-[#737373]">
+                <span className={`font-normal ${isDark ? "text-white/50" : "text-[#737373]"}`}>Contribution: </span>
+                <span className={isDark ? "text-white/50" : "text-[#737373]"}>
                    {project.content?.contribution}
                 </span>
               </div>
@@ -257,10 +272,10 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
           <div className="space-y-4 md:space-y-8">
             {/* Hero Image */}
             <div
-                className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5"
+                className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}
             >
                 <img
-                    src={project.id === '1' ? image_ai_system_old_cover : project.id === '2' ? image_ai_filter_2 : project.image}
+                    src={project.id === '1' ? image_ai_system_old_cover : project.id === '2' ? image_ai_filter_2 : project.id === '5' ? (isDark ? image_dark_sidebar_0 : project.image) : project.image}
                     alt={project.title}
                     className="w-full h-auto object-cover"
                     loading="eager"
@@ -269,14 +284,14 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
 
             {/* Marketplace mkt-1 after cover */}
             {project.id === 'marketplace' && (
-                <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                     <img src={image_marketplace_1} alt="Marketplace image 1" className="w-full h-auto object-cover" loading="lazy" />
                 </div>
             )}
 
             {/* Picky image-4 after cover */}
             {project.id === 'picky' && (
-                <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                     <img src={image_picky_image4} alt="Picky image 4" className="w-full h-auto object-cover" loading="lazy" />
                 </div>
             )}
@@ -285,10 +300,10 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
             {project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && (
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-4 lg:gap-12 px-6 lg:px-[144px] py-[56px]">
                    <div>
-                      <h3 className="text-2xl text-[#1D1D1F] font-medium">The Challenge</h3>
+                      <h3 className={`text-2xl font-medium ${isDark ? "text-white" : "text-[#1D1D1F]"}`}>The Challenge</h3>
                    </div>
                    <div>
-                      <p className="text-[#1D1D1F] leading-relaxed text-[16px]">
+                      <p className={`leading-relaxed text-[16px] ${isDark ? "text-white/80" : "text-[#1D1D1F]"}`}>
                          {project.id === '1' ? (
                             <>
                                AI features had been introduced across the platform without shared rules, causing inconsistent behaviors, duplicated patterns, and unclear visual identity. Users couldn’t recognize when AI was involved, and teams implemented it differently, creating fragmentation and usability issues.
@@ -307,16 +322,16 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
 
             {project.id === '3' && (
                <>
-                  <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                  <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                      <img src={image_111d8a6f56f668fb50a3dc030108066775dd7dd2} alt="Challenge Detail 1" className="w-full h-auto object-cover" loading="lazy" />
                   </div>
                   {/* The Solution Section */}
                   <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-4 lg:gap-12 px-6 lg:px-[144px] py-[56px]">
                      <div>
-                        <h3 className="text-2xl text-[#1D1D1F] font-medium">The Solution</h3>
+                        <h3 className={`text-2xl font-medium ${isDark ? "text-white" : "text-[#1D1D1F]"}`}>The Solution</h3>
                      </div>
                      <div>
-                        <p className="text-[#1D1D1F] leading-relaxed text-[16px]">
+                        <p className={`leading-relaxed text-[16px] ${isDark ? "text-white/80" : "text-[#1D1D1F]"}`}>
                            {project.content?.solution}
                         </p>
                      </div>
@@ -335,10 +350,10 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                     {/* Picky Special Layout */}
                     {project.id === 'picky' && (
                         <>
-                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                            <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                                 <img src={image_picky_2} alt="Picky Detail 2" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
-                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                            <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                                 <img src={image_picky_3} alt="Picky Detail 3" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
                         </>
@@ -347,7 +362,7 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                     {/* Marketplace Special Layout */}
                     {project.id === 'marketplace' && (
                         <>
-                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                            <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                                 <img src={image_marketplace_2} alt="Marketplace Detail 2" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
                         </>
@@ -356,7 +371,7 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                     {/* Next image if available */}
                     {project.additionalImages.length > 1 && project.id !== '1' && project.id !== '2' && project.id !== '3' && project.id !== '4' && project.id !== '5' && project.id !== '6' && project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && (
                         <>
-                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                             <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                                 <img src={project.additionalImages[1]} alt="Project Detail 2" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
                         </>
@@ -366,46 +381,46 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                     {project.id === '2' && (
                         <>
                              {/* Image 2 — right after challenge */}
-                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <img src={image_2c9d546db85fe10ba5d5193105902d360606562a} alt="AI Filter Detail 2" className="w-full h-auto object-cover" loading="lazy" />
+                             <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
+                                <img src={isDark ? image_2_dark_ai_filter : image_2c9d546db85fe10ba5d5193105902d360606562a} alt="AI Filter Detail 2" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
 
                              {/* Exploration Section */}
                              <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-4 lg:gap-12 px-6 lg:px-[144px] py-[56px]">
                                 <div>
-                                   <h3 className="text-2xl text-[#1D1D1F] font-medium">Exploration</h3>
+                                   <h3 className={`text-2xl font-medium ${isDark ? "text-white" : "text-[#1D1D1F]"}`}>Exploration</h3>
                                 </div>
                                 <div>
-                                   <p className="text-[#1D1D1F] leading-relaxed text-[16px]">
+                                   <p className={`leading-relaxed text-[16px] ${isDark ? "text-white/80" : "text-[#1D1D1F]"}`}>
                                       We explored multiple interaction models, including AI-generated filters, hybrid patterns, and explicit AI or basic search modes, to identify the approach that reduced friction while remaining predictable and compatible with existing filtering logic.
                                    </p>
                                 </div>
                              </div>
 
                              {/* Image 3 */}
-                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                             <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                                 <img src={image_f19d971b50bd77036f16ba270b5fa65217e90a96} alt="AI Filter Detail 3" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
 
                             {/* Solution Section for Deel AI Filter */}
                             <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-4 lg:gap-12 px-6 lg:px-[144px] py-[56px]">
                                <div>
-                                  <h3 className="text-2xl text-[#1D1D1F] font-medium">The Solution</h3>
+                                  <h3 className={`text-2xl font-medium ${isDark ? "text-white" : "text-[#1D1D1F]"}`}>The Solution</h3>
                                </div>
                                <div>
-                                  <p className="text-[#1D1D1F] leading-relaxed text-[16px]">
+                                  <p className={`leading-relaxed text-[16px] ${isDark ? "text-white/80" : "text-[#1D1D1F]"}`}>
                                      We introduced an AI-powered search field that converts natural language queries into structured filters automatically. The design keeps the interaction familiar by using the existing filtering system as output, making the AI transparent, predictable, and easy to trust. This approach reduces manual scanning, eliminates repeated searches, and helps users arrive at precise results in seconds.
                                   </p>
                                </div>
                             </div>
 
                             {/* Image 4 */}
-                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                             <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                                 <img src={image_0e6c0f9d5122d7ec1b975bad36cf444dcc8d2a0c} alt="AI Filter Detail 4" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
 
                             {/* Image 5 */}
-                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                             <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                                 <img src={project.additionalImages[2]} alt="AI Filter Detail 5" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
 
@@ -420,25 +435,25 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                      {(project.id === '3' || project.id === '4' || project.id === '6') && project.additionalImages.length > 2 && (
                         <>
                              {project.id !== '3' && (
-                                <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                                <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                                     <img src={project.additionalImages[1]} alt="Project Detail 2" className="w-full h-auto object-cover" loading="lazy" />
                                 </div>
                              )}
-                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                             <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                                 <img src={project.additionalImages[2]} alt="Project Detail 3" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
                         </>
                     )}
                     {project.id === '5' && project.additionalImages.length > 1 && (
-                        <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                            <img src={project.additionalImages[1]} alt="Project Detail 2" className="w-full h-auto object-cover" loading="lazy" />
+                        <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
+                            <img src={isDark ? image_dark_sidebar_2 : project.additionalImages[1]} alt="Project Detail 2" className="w-full h-auto object-cover" loading="lazy" />
                         </div>
                     )}
 
                     {/* New Project 1 (ID 7) Special Layout */}
                     {project.id === '7' && project.additionalImages.length > 2 && (
                         <>
-                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                             <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                                 <img src={image_2e7cb60daaad963190166babbbb63488449849db} alt="Project Detail 3" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
                         </>
@@ -447,13 +462,13 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                     {/* Proprioo (ID 8) Independent Layout */}
                     {project.id === '8' && (
                         <>
-                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                             <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                                 <img src={image_2cd90c07b614e2f1004331266171d8e5a1c3b12c} alt="Proprioo Detail 1" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
-                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                             <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                                 <img src={image_ae7d83864749d0a9f5f94138a6b3467b94535342} alt="Proprioo Detail 2" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
-                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                             <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                                 <img src={image_proprioo_detail3} alt="Proprioo Detail 3" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
                         </>
@@ -461,8 +476,8 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
 
                     {/* AI System: image 2 between Challenge and Solution */}
                     {project.id === '1' && (
-                        <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                            <ImageWithFallback src={image_78bcc4cd397289537dc51ff24bba5f65c610e007} alt="AI System Detail 2" className="w-full h-auto object-cover" loading="lazy" />
+                        <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
+                            <ImageWithFallback src={isDark ? image_dark_ais_2 : image_78bcc4cd397289537dc51ff24bba5f65c610e007} alt="AI System Detail 2" className="w-full h-auto object-cover" loading="lazy" />
                         </div>
                     )}
 
@@ -472,10 +487,10 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                         project.id !== '3' && project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && (
                            <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-4 lg:gap-12 px-6 lg:px-[144px] py-[56px]">
                               <div>
-                                 <h3 className="text-2xl text-[#1D1D1F] font-medium">The Solution</h3>
+                                 <h3 className={`text-2xl font-medium ${isDark ? "text-white" : "text-[#1D1D1F]"}`}>The Solution</h3>
                               </div>
                               <div>
-                                 <p className="text-[#1D1D1F] leading-relaxed text-[16px]">
+                                 <p className={`leading-relaxed text-[16px] ${isDark ? "text-white/80" : "text-[#1D1D1F]"}`}>
                                     {project.id === '1' ? "I designed a scalable system that standardized how AI appears and behaves across Deel. This included a unified visual language (icons, colors, and motion), a library of interaction patterns (chat, search, and suggestions), and clear guidelines for when and how to use them. The result was a cohesive experience where users could intuitively understand and trust AI-driven features, regardless of where they encountered them in the platform." : project.content?.solution}
                                  </p>
                               </div>
@@ -485,7 +500,7 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
 
                     {/* First additional image (Full width) */}
                     {project.id !== '1' && project.id !== '5' && project.id !== '2' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && (
-                        <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                        <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                             <img src={project.id === '7' ? image_7d06fcacd31da9ee5c8ad7914f5e6b38d500a82c : project.additionalImages?.[0]} alt="Project Detail 1" className="w-full h-auto object-cover" loading="lazy" />
                         </div>
                     )}
@@ -494,7 +509,7 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
 
                     {/* Remaining additional images (Full width) */}
                     {project.additionalImages.length > 3 && project.id !== '1' && project.id !== '5' && project.id !== '6' && project.id !== '3' && project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && project.additionalImages.slice(3).map((img, index) => (
-                        <div key={index + 3} className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                        <div key={index + 3} className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                             <img src={img} alt={`Project Detail ${index + 4}`} className="w-full h-auto object-cover" loading="lazy" />
                         </div>
                     ))}
@@ -502,42 +517,42 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                     {/* Additional Images - ONLY for Deel AI System (ID 1) — images 3–10 in order */}
                     {project.id === '1' && (
                         <>
-                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                            <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                                 <ImageWithFallback
-                                    src={image_646336dcf79507740d618e1ab6812dfab7b5f2a8}
+                                    src={isDark ? image_dark_ais_3 : image_646336dcf79507740d618e1ab6812dfab7b5f2a8}
                                     alt="New Project Detail 2"
                                     className="w-full h-auto object-cover" 
                                     loading="lazy"
                                 />
                             </div>
-                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                            <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                                 <ImageWithFallback 
-                                    src={image_d41f58b7312c45c814c4af3d9466803316700c6d} 
-                                    alt="New Project Detail 4" 
+                                    src={isDark ? image_dark_ais_5 : image_d41f58b7312c45c814c4af3d9466803316700c6d}
+                                    alt="New Project Detail 4"
                                     className="w-full h-auto object-cover" 
                                     loading="lazy"
                                 />
                             </div>
-                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
+                            <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                                 <ImageWithFallback 
-                                    src={image_7d729140b826089d5a1eb2eda08583eab6e0c939} 
-                                    alt="New Project Detail 5" 
+                                    src={isDark ? image_dark_ais_6 : image_7d729140b826089d5a1eb2eda08583eab6e0c939}
+                                    alt="New Project Detail 5"
                                     className="w-full h-auto object-cover" 
                                     loading="lazy"
                                 />
                             </div>
 
-                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <img src={image_4ed47e70212ef993d5a438705c2e9ba3d23ec7a9} alt="Project Detail Placeholder 8" className="w-full h-auto object-cover" loading="lazy" />
+                            <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
+                                <img src={isDark ? image_dark_ais_7 : image_4ed47e70212ef993d5a438705c2e9ba3d23ec7a9} alt="Project Detail Placeholder 8" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
-                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <ImageWithFallback src={image_ai_system_ais4} alt="New Project Detail 7" className="w-full h-auto object-cover" loading="lazy" />
+                            <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
+                                <ImageWithFallback src={isDark ? image_dark_ais_8 : image_ai_system_ais4} alt="New Project Detail 7" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
-                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <ImageWithFallback src={image_ai_system_ais5} alt="New Project Detail 8" className="w-full h-auto object-cover" loading="lazy" />
+                            <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
+                                <ImageWithFallback src={isDark ? image_dark_ais_9 : image_ai_system_ais5} alt="New Project Detail 8" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
-                            <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <ImageWithFallback src={image_ai_system_docs} alt="New Project Detail 9" className="w-full h-auto object-cover" loading="lazy" />
+                            <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
+                                <ImageWithFallback src={isDark ? image_dark_ais_10 : image_ai_system_docs} alt="New Project Detail 9" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
                         </>
                     )}
@@ -545,14 +560,14 @@ export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                     {/* Sidebar Navigation (ID 5) Extra Images */}
                     {project.id === '5' && (
                         <>
-                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <img src={image_697e1671b4060635802024b4aa3d284414e4d1ee} alt="Sidebar Detail 1" className="w-full h-auto object-cover" loading="lazy" />
+                             <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
+                                <img src={isDark ? image_dark_sidebar_3 : image_697e1671b4060635802024b4aa3d284414e4d1ee} alt="Sidebar Detail 1" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
-                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <img src={image_1d322c3759e4a139d69e8b68cfeca49b7837aacd} alt="Sidebar Detail 2" className="w-full h-auto object-cover" loading="lazy" />
+                             <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
+                                <img src={isDark ? image_dark_sidebar_4 : image_1d322c3759e4a139d69e8b68cfeca49b7837aacd} alt="Sidebar Detail 2" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
-                             <div className="rounded-2xl md:rounded-[2rem] overflow-hidden bg-neutral-100 border border-black/5">
-                                <img src={image_a6e288138682fabc78bf63691c76aead1a147ff4} alt="Sidebar Detail 3" className="w-full h-auto object-cover" loading="lazy" />
+                             <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
+                                <img src={isDark ? image_dark_sidebar_5 : image_a6e288138682fabc78bf63691c76aead1a147ff4} alt="Sidebar Detail 3" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
                         </>
                     )}
