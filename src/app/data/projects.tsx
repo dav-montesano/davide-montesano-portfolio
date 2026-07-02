@@ -114,6 +114,10 @@ import image_474d4ea1afb413d668c3afd9988135b471ad3e12 from 'figma:asset/474d4ea1
 import image_8c78098b24bd3d193940d30858d4db56f60849dd from 'figma:asset/8c78098b24bd3d193940d30858d4db56f60849dd.png';
 import image_2fa8828a0f2a8c374a96eda2bb0176c069b7bf38 from 'figma:asset/2fa8828a0f2a8c374a96eda2bb0176c069b7bf38.png';
 import image_e912d90c82cc4ad4f7718040ddf1c649b38363b3 from 'figma:asset/e912d90c82cc4ad4f7718040ddf1c649b38363b3.png';
+import image_agentic_cover1 from 'figma:asset/_agentic_UI/cover/_agentic_UI_cover-9.png';
+import image_agentic_1 from 'figma:asset/_agentic_UI/_agentic_UI_1.png';
+import image_agentic_3 from 'figma:asset/_agentic_UI/_agentic_UI_3.png';
+import image_agentic_4 from 'figma:asset/_agentic_UI/_agentic_UI_4.png';
 
 // Mock Data
 export const PROJECTS = [
@@ -193,32 +197,33 @@ export const PROJECTS = [
     },
   },
   {
-    id: "1",
-    title: "Deel AI System",
+    id: "agentic-ui",
+    title: "Deel Agentic UI Builder",
     category: "Product",
     role: "Staff Product Designer",
-    image: image_99cd40897974eea898b95d74878386bc6fee98e1,
-    description: "A unified AI foundation adopted across the platform.",
+    image: image_agentic_cover1,
+    description: "Configure and embed any Deel surface through conversation.",
     additionalImages: [
-        image_ai_system_sig1,
-        image_e5ef6fb7b94c2775d2010d1dca50a8b54de69ed0,
-        image_b71054c7f42dfa4cfc470f15af8c0be98ff0cfba,
-        image_ai_system_sig2,
-        image_f399d50ecad1a86343397b8b169c33f426467c77,
-        image_1b085a9a948906eeda6a424943eb398477726985
+        image_agentic_3,
+        image_agentic_4,
+        image_agentic_1,
     ],
     content: {
-        contribution: "Interaction design, Visual design, Design systems",
-        challenge: "Prior to this system, AI features were being developed in silos, leading to inconsistent visual styles and interaction patterns across the platform. This fragmentation increased cognitive load for users and created design and technical debt, as teams lacked a shared foundation for building intelligence into their products.",
-        solution: "I defined a unified AI system that standardizes interaction logic, behavioral rules, and component architecture across the platform. Alongside this, I established a cohesive visual and brand identity for AI—covering tokens, motion, iconography, and states—to ensure consistency, recognizability, and scalability for every AI touchpoint in Deel.",
+        contribution: "Product design, Interaction design, AI/agent design, Design systems",
+        challenge: "Embedding a Deel surface into a partner's product traditionally required developer handoffs, design specs, and iteration cycles measured in weeks — putting white-labeled, embeddable surfaces out of reach for non-technical builders. Every new marketplace, payroll flow, or embeddable service meant a fresh round of specs and dev cycles before anything could ship.",
+        solution: "I designed a conversational configuration surface where builders start from a pre-configured template and describe what they want in plain language — upload a logo and it swaps into place instantly, drop in a moodboard and brand colors are extracted and applied to the live preview, or type \"make the primary color green\" and watch every surface update in real time. Chat stays in sync with direct configuration tabs — Features for toggling what's available, Appearance for logos, colors, radius, and typography — so builders move fluidly between describing intent and picking from pre-built options, with a live preview always rendered inside a branded browser frame and auto-save on.",
         overview: (
             <>
-                I led the design of <span className="text-[#FF9300] font-semibold">Deel’s AI system and identity</span>, defining the <span className="text-[#FF9300] font-semibold">visual language</span> and core <span className="text-[#FF9300] font-semibold">component foundations</span> used across AI features on the platform. I established the interaction models for AI-enabled inputs—how users type, trigger, refine, and receive AI assistance—and translated them into scalable patterns adopted across teams.
+                <span className="text-[#FF9300] font-semibold">Configure and embed any Deel surface through conversation.</span> The Agentic UI Builder turns a complex embedding process into natural language, letting builders shape a marketplace, a payroll flow, or any embeddable service just by describing what they want in plain language.
             </>
         ),
-        outcome: "Within three months of launch, 83% of interaction components adopted the new AI properties, with AI-enabled inputs exceeding 45,000 insertions in the first quarter. The system has since been integrated by 12 product teams and used to ship 7 major AI features across the platform.",
-        techStack: "React, Next.js, WebGL, Tailwind CSS, Sanity CMS",
-        credits: "Creative Direction: Bakken & Bæck\nDevelopment: Bakken & Bæck\nClient: Sierra"
+        outcome: (
+            <>
+                What makes it different is the removal of the gap between intent and result. A non-technical builder can transform a generic template into a <span className="text-[#FF9300] font-semibold">fully white-labeled surface</span> in a single session, then ship it straight into their own product. It's headless customization made conversational.
+            </>
+        ),
+        techStack: "React, TypeScript, LLM Agent Orchestration, Deel UI Core",
+        credits: "",
     }
   },
   {
@@ -250,6 +255,35 @@ export const PROJECTS = [
         ),
         techStack: "React Native, GraphQL, Node.js",
         credits: "Design: Coinbase Design Team\nDevelopment: Alex Morgan Studio"
+    }
+  },
+  {
+    id: "1",
+    title: "Deel AI System",
+    category: "Product",
+    role: "Staff Product Designer",
+    image: image_99cd40897974eea898b95d74878386bc6fee98e1,
+    description: "A unified AI foundation adopted across the platform.",
+    additionalImages: [
+        image_ai_system_sig1,
+        image_e5ef6fb7b94c2775d2010d1dca50a8b54de69ed0,
+        image_b71054c7f42dfa4cfc470f15af8c0be98ff0cfba,
+        image_ai_system_sig2,
+        image_f399d50ecad1a86343397b8b169c33f426467c77,
+        image_1b085a9a948906eeda6a424943eb398477726985
+    ],
+    content: {
+        contribution: "Interaction design, Visual design, Design systems",
+        challenge: "Prior to this system, AI features were being developed in silos, leading to inconsistent visual styles and interaction patterns across the platform. This fragmentation increased cognitive load for users and created design and technical debt, as teams lacked a shared foundation for building intelligence into their products.",
+        solution: "I defined a unified AI system that standardizes interaction logic, behavioral rules, and component architecture across the platform. Alongside this, I established a cohesive visual and brand identity for AI—covering tokens, motion, iconography, and states—to ensure consistency, recognizability, and scalability for every AI touchpoint in Deel.",
+        overview: (
+            <>
+                I led the design of <span className="text-[#FF9300] font-semibold">Deel’s AI system and identity</span>, defining the <span className="text-[#FF9300] font-semibold">visual language</span> and core <span className="text-[#FF9300] font-semibold">component foundations</span> used across AI features on the platform. I established the interaction models for AI-enabled inputs—how users type, trigger, refine, and receive AI assistance—and translated them into scalable patterns adopted across teams.
+            </>
+        ),
+        outcome: "Within three months of launch, 83% of interaction components adopted the new AI properties, with AI-enabled inputs exceeding 45,000 insertions in the first quarter. The system has since been integrated by 12 product teams and used to ship 7 major AI features across the platform.",
+        techStack: "React, Next.js, WebGL, Tailwind CSS, Sanity CMS",
+        credits: "Creative Direction: Bakken & Bæck\nDevelopment: Bakken & Bæck\nClient: Sierra"
     }
   },
   {

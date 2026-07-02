@@ -93,6 +93,8 @@ import image_ai_system_ais5 from 'figma:asset/new images no bg/ai system/9_ais-5
 import image_ai_system_docs from 'figma:asset/new images no bg/ai system/10_documentation.png';
 import image_proprioo_detail3 from 'figma:asset/new images no bg/proprioo/4_8.5.png';
 import image_ai_system_old_cover from 'figma:asset/new images no bg/ai system/Old cover/0_Container.png';
+import video_agentic_light from 'figma:asset/_agentic_UI/video/_agentic_UI_light-compressed.mp4';
+import video_agentic_dark from 'figma:asset/_agentic_UI/video/_agentic_UI_dark-compressed.mp4';
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
 import { ArrowLeft } from "lucide-react";
@@ -270,16 +272,29 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
 
           {/* Images */}
           <div className="space-y-4 md:space-y-8">
-            {/* Hero Image */}
+            {/* Hero Image / Video */}
             <div
                 className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}
             >
-                <img
-                    src={project.id === '1' ? image_ai_system_old_cover : project.id === '2' ? image_ai_filter_2 : project.id === '5' ? (isDark ? image_dark_sidebar_0 : project.image) : project.image}
-                    alt={project.title}
-                    className="w-full h-auto object-cover"
-                    loading="eager"
-                />
+                {project.id === 'agentic-ui' ? (
+                    <video
+                        key={isDark ? 'dark' : 'light'}
+                        src={isDark ? video_agentic_dark : video_agentic_light}
+                        className="w-full h-auto object-cover"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                    />
+                ) : (
+                    <img
+                        src={project.id === '1' ? image_ai_system_old_cover : project.id === '2' ? image_ai_filter_2 : project.id === '5' ? (isDark ? image_dark_sidebar_0 : project.image) : project.image}
+                        alt={project.title}
+                        className="w-full h-auto object-cover"
+                        loading="eager"
+                    />
+                )}
             </div>
 
             {/* Marketplace mkt-1 after cover */}
@@ -297,7 +312,7 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
             )}
 
             {/* Challenge Section */}
-            {project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && (
+            {project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && project.id !== 'agentic-ui' && (
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-4 lg:gap-12 px-6 lg:px-[144px] py-[56px]">
                    <div>
                       <h3 className={`text-2xl font-medium ${isDark ? "text-white" : "text-[#1D1D1F]"}`}>The Challenge</h3>
@@ -369,7 +384,7 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
                     )}
 
                     {/* Next image if available */}
-                    {project.additionalImages.length > 1 && project.id !== '1' && project.id !== '2' && project.id !== '3' && project.id !== '4' && project.id !== '5' && project.id !== '6' && project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && (
+                    {project.additionalImages.length > 1 && project.id !== '1' && project.id !== '2' && project.id !== '3' && project.id !== '4' && project.id !== '5' && project.id !== '6' && project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && project.id !== 'agentic-ui' && (
                         <>
                              <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                                 <img src={project.additionalImages[1]} alt="Project Detail 2" className="w-full h-auto object-cover" loading="lazy" />
@@ -431,6 +446,13 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
                         </>
                     )}
 
+                    {/* Agentic UI Builder (ID agentic-ui) Independent Layout */}
+                    {project.id === 'agentic-ui' && project.additionalImages.map((img, index) => (
+                        <div key={index} className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
+                            <img src={img} alt={`Agentic UI Builder detail ${index + 1}`} className="w-full h-auto object-cover" loading="lazy" />
+                        </div>
+                    ))}
+
                     {/* Coinbase & Frame Special: Render images 2 & 3 (index 1 & 2) full width */}
                      {(project.id === '3' || project.id === '4' || project.id === '6') && project.additionalImages.length > 2 && (
                         <>
@@ -483,7 +505,7 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
 
                     {/* Solution Section */}
 
-                    {project.id !== '2' && (
+                    {project.id !== '2' && project.id !== 'agentic-ui' && (
                         project.id !== '3' && project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && (
                            <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-4 lg:gap-12 px-6 lg:px-[144px] py-[56px]">
                               <div>
@@ -499,7 +521,7 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
                     )}
 
                     {/* First additional image (Full width) */}
-                    {project.id !== '1' && project.id !== '5' && project.id !== '2' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && (
+                    {project.id !== '1' && project.id !== '5' && project.id !== '2' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && project.id !== 'agentic-ui' && (
                         <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                             <img src={project.id === '7' ? image_7d06fcacd31da9ee5c8ad7914f5e6b38d500a82c : project.additionalImages?.[0]} alt="Project Detail 1" className="w-full h-auto object-cover" loading="lazy" />
                         </div>
@@ -508,7 +530,7 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
 
 
                     {/* Remaining additional images (Full width) */}
-                    {project.additionalImages.length > 3 && project.id !== '1' && project.id !== '5' && project.id !== '6' && project.id !== '3' && project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && project.additionalImages.slice(3).map((img, index) => (
+                    {project.additionalImages.length > 3 && project.id !== '1' && project.id !== '5' && project.id !== '6' && project.id !== '3' && project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && project.id !== 'agentic-ui' && project.additionalImages.slice(3).map((img, index) => (
                         <div key={index + 3} className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                             <img src={img} alt={`Project Detail ${index + 4}`} className="w-full h-auto object-cover" loading="lazy" />
                         </div>

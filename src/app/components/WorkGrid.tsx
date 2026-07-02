@@ -21,33 +21,36 @@ const CARD_COLORS_LIGHT = [
   "#FFFFFF", // 1. Picky
   "#FFFFFF", // 2. AI Filter
   "#FFFFFF", // 3. Marketplace
-  "#FFFFFF", // 4. AI System
+  "#FFFFFF", // 4. Agentic UI Builder
   "#FFFFFF", // 5. AI Global Search
-  "#FFFFFF", // 6. Sidebar
-  "#FFFFFF", // 7. Casavo
-  "#FFFFFF", // 8. Proprioo
+  "#FFFFFF", // 6. AI System
+  "#FFFFFF", // 7. Sidebar
+  "#FFFFFF", // 8. Casavo (hidden)
+  "#FFFFFF", // 9. Proprioo (hidden)
 ];
 
 const CARD_COLORS_DARK = [
   "#2C2C30", // 1. Picky
   "#2C2C30", // 2. AI Filter
   "#2C2C30", // 3. Marketplace
-  "#2C2C30", // 4. AI System
+  "#2C2C30", // 4. Agentic UI Builder
   "#2C2C30", // 5. AI Global Search
-  "#2C2C30", // 6. Sidebar
-  "#2C2C30", // 7. Casavo
-  "#2C2C30", // 8. Proprioo
+  "#2C2C30", // 6. AI System
+  "#2C2C30", // 7. Sidebar
+  "#2C2C30", // 8. Casavo (hidden)
+  "#2C2C30", // 9. Proprioo (hidden)
 ];
 
 const CARD_HOVER_COLORS: string[] = [
   "#252429", // 1. Picky
   "#C6914D", // 2. AI Filter
   "#498EFF", // 3. Marketplace
-  "#86BFE9", // 4. AI System
+  "#86BFE9", // 4. Agentic UI Builder
   "#252429", // 5. AI Global Search
-  "#C6914D", // 6. Sidebar
-  "#498EFF", // 7. Casavo
-  "#86BFE9", // 8. Proprioo
+  "#C6914D", // 6. AI System
+  "#498EFF", // 7. Sidebar
+  "#86BFE9", // 8. Casavo (hidden)
+  "#252429", // 9. Proprioo (hidden)
 ];
 
 export const WorkGrid = ({ projects, onProjectClick, introContent, isDark }: WorkGridProps) => {
