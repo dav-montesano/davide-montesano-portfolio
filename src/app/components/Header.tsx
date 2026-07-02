@@ -81,7 +81,7 @@ export const Header = ({ activeTab, onTabChange, isDark, onSetDark }: HeaderProp
           </div>
         </div>
 
-        <div className="pointer-events-auto flex items-center gap-4">
+        <div className="pointer-events-auto hidden md:flex items-center gap-4">
           <SkeuoToggle isDark={isDark} onSetDark={onSetDark} />
         </div>
       </div>
