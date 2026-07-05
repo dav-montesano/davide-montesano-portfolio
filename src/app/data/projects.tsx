@@ -148,6 +148,30 @@ export const PROJECTS = [
     },
   },
   {
+    id: "2",
+    title: "Deel AI Filter",
+    category: "Strategy",
+    role: "Staff Product Designer",
+    image: image_ai_filter_cover,
+    description: "A search field that understands intent transforming simple queries into multi-layered filters.",
+    additionalImages: [
+        image_e2ea81540a01142a3a2fa93889862a0562ac690f,
+        image_e1c6329a0d3e089d2d71032b8757b26f74ae4a26,
+        image_ai_filter_frame5,
+    ],
+    content: {
+        contribution: "UX design, Interaction design, Design systems",
+        overview: (
+            <>
+                I designed the <span className="text-[#FF9300] font-semibold">AI filter pattern</span> to translate natural language queries into structured, scalable filters across Deel’s data-heavy surfaces. The system adapts across contexts—data grids, filter drawers, and advanced rule editors—<span className="text-[#FF9300] font-semibold">improving discoverability</span> while reducing the effort required to <span className="text-[#FF9300] font-semibold">refine complex datasets</span>.
+            </>
+        ),
+        outcome: "The pattern was adopted by four product teams within the first quarter, where AI-generated conditions reduced client setup time by approximately 22% during workforce imports and syncs. Smart filters achieved a 91% first-try accuracy rate, validating the system’s ability to reliably convert intent into actionable structure.",
+        techStack: "Unreal Engine 5, React, Three.js",
+        credits: "Architecture: BIG\nDigital Experience: Alex Morgan Studio"
+    }
+  },
+  {
     id: "agentic-ui",
     title: "Deel Agentic UI Builder",
     category: "Product",
@@ -175,30 +199,6 @@ export const PROJECTS = [
         ),
         techStack: "React, TypeScript, LLM Agent Orchestration, Deel UI Core",
         credits: "",
-    }
-  },
-  {
-    id: "2",
-    title: "Deel AI Filter",
-    category: "Strategy",
-    role: "Staff Product Designer",
-    image: image_ai_filter_cover,
-    description: "A search field that understands intent transforming simple queries into multi-layered filters.",
-    additionalImages: [
-        image_e2ea81540a01142a3a2fa93889862a0562ac690f,
-        image_e1c6329a0d3e089d2d71032b8757b26f74ae4a26,
-        image_ai_filter_frame5,
-    ],
-    content: {
-        contribution: "UX design, Interaction design, Design systems",
-        overview: (
-            <>
-                I designed the <span className="text-[#FF9300] font-semibold">AI filter pattern</span> to translate natural language queries into structured, scalable filters across Deel’s data-heavy surfaces. The system adapts across contexts—data grids, filter drawers, and advanced rule editors—<span className="text-[#FF9300] font-semibold">improving discoverability</span> while reducing the effort required to <span className="text-[#FF9300] font-semibold">refine complex datasets</span>.
-            </>
-        ),
-        outcome: "The pattern was adopted by four product teams within the first quarter, where AI-generated conditions reduced client setup time by approximately 22% during workforce imports and syncs. Smart filters achieved a 91% first-try accuracy rate, validating the system’s ability to reliably convert intent into actionable structure.",
-        techStack: "Unreal Engine 5, React, Three.js",
-        credits: "Architecture: BIG\nDigital Experience: Alex Morgan Studio"
     }
   },
   {
