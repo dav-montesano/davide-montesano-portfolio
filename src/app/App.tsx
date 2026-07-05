@@ -57,10 +57,7 @@ export default function App() {
       >
         {activeTab === 'work' && (
             <>
-                {/* Top Header Text Section */}
-
-                
-                <WorkGrid 
+                <WorkGrid
                     introContent={(
                         <div className="w-full flex flex-col gap-[16px] md:grid md:grid-rows-2 md:h-full">
                             {/* Row A: Text */}

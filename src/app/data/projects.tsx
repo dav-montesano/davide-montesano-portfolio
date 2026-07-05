@@ -123,7 +123,7 @@ import image_agentic_4 from 'figma:asset/_agentic_UI/_agentic_UI_4.png';
 export const PROJECTS = [
   {
     id: "picky",
-    title: "Picky",
+    title: "Earr",
     category: "Side Project",
     role: "Product Designer & Builder",
     image: image_picky_cover,

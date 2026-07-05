@@ -1,4 +1,5 @@
 import image_ai_filter_2 from 'figma:asset/new images no bg/ai filter/1_ai-filter-2.png';
+import video_earr_hero from 'figma:asset/Picky/video iphone/earr-screenrecording-compressed.mp4';
 import image_picky_2 from 'figma:asset/new images no bg/picky/3_image-2.png';
 import image_picky_3 from 'figma:asset/new images no bg/picky/4_image-3.png';
 import image_picky_image4 from 'figma:asset/new images no bg/picky/2_image-4.png';
@@ -243,7 +244,7 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
                                     : project.id === '5'
                                     ? "I documented the full navigation model across desktop and mobile to support scalability and long-term adoption. Within the first quarter, the pattern was adopted by six product teams and became a shared navigation foundation, reducing design debt and improving wayfinding metrics by nearly 20%."
                                     : project.id === 'picky'
-                                    ? <>Picky is a personal project I designed and built from scratch. Currently in beta — live and usable at <a href="https://explore-track.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">explore-track.vercel.app</a>. Still iterating on onboarding, the feedback loop, and new sources.</>
+                                    ? <>Earr is a personal project I designed and built from scratch. Currently in beta — live and usable at <a href="https://www.earr.space/" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">earr.space</a>. Still iterating on onboarding, the feedback loop, and new sources.</>
                                     : project.content.outcome}
                             </span>
                         )}
@@ -287,6 +288,18 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
                         playsInline
                         preload="metadata"
                     />
+                ) : project.id === 'picky' ? (
+                    <div className={`aspect-[2304/1350] w-full flex items-center justify-center ${isDark ? "bg-[#2C2C2E]" : "bg-neutral-100"}`}>
+                        <video
+                            src={video_earr_hero}
+                            className="h-[88%] w-auto object-contain rounded-2xl"
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            preload="metadata"
+                        />
+                    </div>
                 ) : (
                     <img
                         src={project.id === '1' ? image_ai_system_old_cover : project.id === '2' ? image_ai_filter_2 : project.id === '5' ? (isDark ? image_dark_sidebar_0 : project.image) : project.image}
@@ -307,7 +320,7 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
             {/* Picky image-4 after cover */}
             {project.id === 'picky' && (
                 <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
-                    <img src={image_picky_image4} alt="Picky image 4" className="w-full h-auto object-cover" loading="lazy" />
+                    <img src={image_picky_image4} alt="Earr image 4" className="w-full h-auto object-cover" loading="lazy" />
                 </div>
             )}
 
@@ -366,10 +379,10 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
                     {project.id === 'picky' && (
                         <>
                             <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
-                                <img src={image_picky_2} alt="Picky Detail 2" className="w-full h-auto object-cover" loading="lazy" />
+                                <img src={image_picky_2} alt="Earr Detail 2" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
                             <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
-                                <img src={image_picky_3} alt="Picky Detail 3" className="w-full h-auto object-cover" loading="lazy" />
+                                <img src={image_picky_3} alt="Earr Detail 3" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
                         </>
                     )}
