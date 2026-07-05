@@ -1,5 +1,7 @@
 import image_ai_filter_2 from 'figma:asset/new images no bg/ai filter/1_ai-filter-2.png';
 import video_earr_hero from 'figma:asset/Picky/video iphone/earr-screenrecording-compressed.mp4';
+import video_ai_filter_light from 'figma:asset/AI-filter/video/AI-filter-light-compressed.mp4';
+import video_ai_filter_dark from 'figma:asset/AI-filter/video/AI-filter-dark-compressed.mp4';
 import image_picky_2 from 'figma:asset/new images no bg/picky/3_image-2.png';
 import image_picky_3 from 'figma:asset/new images no bg/picky/4_image-3.png';
 import image_picky_image4 from 'figma:asset/new images no bg/picky/2_image-4.png';
@@ -94,11 +96,11 @@ import image_ai_system_ais5 from 'figma:asset/new images no bg/ai system/9_ais-5
 import image_ai_system_docs from 'figma:asset/new images no bg/ai system/10_documentation.png';
 import image_proprioo_detail3 from 'figma:asset/new images no bg/proprioo/4_8.5.png';
 import image_ai_system_old_cover from 'figma:asset/new images no bg/ai system/Old cover/0_Container.png';
-import video_agentic_light from 'figma:asset/_agentic_UI/video/_agentic_UI_light-compressed.mp4';
-import video_agentic_dark from 'figma:asset/_agentic_UI/video/_agentic_UI_dark-compressed.mp4';
+import video_agentic_light from 'figma:asset/_agentic_UI/video/new-video/Agentic-light-video-compressed.mp4';
+import video_agentic_dark from 'figma:asset/_agentic_UI/video/new-video/Agentic-dark-video-compressed.mp4';
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Play, Pause } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
 interface Project {
@@ -129,6 +131,12 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll({ container: containerRef });
   const [showStickyHeader, setShowStickyHeader] = useState(false);
+  const agenticVideoRef = useRef<HTMLVideoElement>(null);
+  const [isAgenticVideoPlaying, setIsAgenticVideoPlaying] = useState(true);
+  const earrVideoRef = useRef<HTMLVideoElement>(null);
+  const [isEarrVideoPlaying, setIsEarrVideoPlaying] = useState(true);
+  const aiFilterVideoRef = useRef<HTMLVideoElement>(null);
+  const [isAiFilterVideoPlaying, setIsAiFilterVideoPlaying] = useState(true);
 
   useEffect(() => {
     return scrollY.on("change", (latest) => {
@@ -275,22 +283,68 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
           <div className="space-y-4 md:space-y-8">
             {/* Hero Image / Video */}
             <div
-                className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}
+                className={`relative rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}
             >
                 {project.id === 'agentic-ui' ? (
-                    <video
-                        key={isDark ? 'dark' : 'light'}
-                        src={isDark ? video_agentic_dark : video_agentic_light}
-                        className="w-full h-auto object-cover"
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        preload="metadata"
-                    />
-                ) : project.id === 'picky' ? (
-                    <div className={`aspect-[2304/1350] w-full flex items-center justify-center ${isDark ? "bg-[#2C2C2E]" : "bg-neutral-100"}`}>
+                    <>
+                        <button
+                            type="button"
+                            onClick={() => {
+                                const videoEl = agenticVideoRef.current;
+                                if (!videoEl) return;
+                                if (videoEl.paused) {
+                                    videoEl.play();
+                                    setIsAgenticVideoPlaying(true);
+                                } else {
+                                    videoEl.pause();
+                                    setIsAgenticVideoPlaying(false);
+                                }
+                            }}
+                            className={`absolute top-4 left-4 z-10 flex items-center justify-center backdrop-blur-md border w-8 h-8 rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.15)] transition-colors ${isDark ? "bg-black/40 border-white/10 text-white hover:bg-black/60" : "bg-white/80 border-black/10 text-[#1D1D1F] hover:bg-white"}`}
+                        >
+                            {isAgenticVideoPlaying ? (
+                                <Pause className="w-3.5 h-3.5" fill="currentColor" stroke="none" />
+                            ) : (
+                                <Play className="w-3.5 h-3.5 ml-0.5" fill="currentColor" stroke="none" />
+                            )}
+                        </button>
                         <video
+                            key={isDark ? 'dark' : 'light'}
+                            ref={agenticVideoRef}
+                            src={isDark ? video_agentic_dark : video_agentic_light}
+                            className="w-full h-auto object-cover"
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            preload="metadata"
+                        />
+                    </>
+                ) : project.id === 'picky' ? (
+                    <div className={`relative aspect-[2304/1350] w-full flex items-center justify-center ${isDark ? "bg-[#2C2C2E]" : "bg-neutral-100"}`}>
+                        <button
+                            type="button"
+                            onClick={() => {
+                                const videoEl = earrVideoRef.current;
+                                if (!videoEl) return;
+                                if (videoEl.paused) {
+                                    videoEl.play();
+                                    setIsEarrVideoPlaying(true);
+                                } else {
+                                    videoEl.pause();
+                                    setIsEarrVideoPlaying(false);
+                                }
+                            }}
+                            className={`absolute top-4 left-4 z-10 flex items-center justify-center backdrop-blur-md border w-8 h-8 rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.15)] transition-colors ${isDark ? "bg-black/40 border-white/10 text-white hover:bg-black/60" : "bg-white/80 border-black/10 text-[#1D1D1F] hover:bg-white"}`}
+                        >
+                            {isEarrVideoPlaying ? (
+                                <Pause className="w-3.5 h-3.5" fill="currentColor" stroke="none" />
+                            ) : (
+                                <Play className="w-3.5 h-3.5 ml-0.5" fill="currentColor" stroke="none" />
+                            )}
+                        </button>
+                        <video
+                            ref={earrVideoRef}
                             src={video_earr_hero}
                             className="h-[88%] w-auto object-contain rounded-2xl"
                             autoPlay
@@ -452,9 +506,41 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
                                 <img src={project.additionalImages[2]} alt="AI Filter Detail 5" className="w-full h-auto object-cover" loading="lazy" />
                             </div>
 
-
-
-
+                            {/* Video */}
+                             <div className={`relative rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        const videoEl = aiFilterVideoRef.current;
+                                        if (!videoEl) return;
+                                        if (videoEl.paused) {
+                                            videoEl.play();
+                                            setIsAiFilterVideoPlaying(true);
+                                        } else {
+                                            videoEl.pause();
+                                            setIsAiFilterVideoPlaying(false);
+                                        }
+                                    }}
+                                    className={`absolute top-4 left-4 z-10 flex items-center justify-center backdrop-blur-md border w-8 h-8 rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.15)] transition-colors ${isDark ? "bg-black/40 border-white/10 text-white hover:bg-black/60" : "bg-white/80 border-black/10 text-[#1D1D1F] hover:bg-white"}`}
+                                >
+                                    {isAiFilterVideoPlaying ? (
+                                        <Pause className="w-3.5 h-3.5" fill="currentColor" stroke="none" />
+                                    ) : (
+                                        <Play className="w-3.5 h-3.5 ml-0.5" fill="currentColor" stroke="none" />
+                                    )}
+                                </button>
+                                <video
+                                    key={isDark ? 'dark' : 'light'}
+                                    ref={aiFilterVideoRef}
+                                    src={isDark ? video_ai_filter_dark : video_ai_filter_light}
+                                    className="w-full h-auto object-cover"
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    preload="metadata"
+                                />
+                            </div>
 
                         </>
                     )}

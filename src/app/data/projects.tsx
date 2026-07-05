@@ -114,7 +114,7 @@ import image_474d4ea1afb413d668c3afd9988135b471ad3e12 from 'figma:asset/474d4ea1
 import image_8c78098b24bd3d193940d30858d4db56f60849dd from 'figma:asset/8c78098b24bd3d193940d30858d4db56f60849dd.png';
 import image_2fa8828a0f2a8c374a96eda2bb0176c069b7bf38 from 'figma:asset/2fa8828a0f2a8c374a96eda2bb0176c069b7bf38.png';
 import image_e912d90c82cc4ad4f7718040ddf1c649b38363b3 from 'figma:asset/e912d90c82cc4ad4f7718040ddf1c649b38363b3.png';
-import image_agentic_cover1 from 'figma:asset/_agentic_UI/cover/_agentic_UI_cover-9.png';
+import image_agentic_cover1 from 'figma:asset/_agentic_UI/cover/New cover/_agentic_UI_cover-new-2.png';
 import image_agentic_1 from 'figma:asset/_agentic_UI/_agentic_UI_1.png';
 import image_agentic_3 from 'figma:asset/_agentic_UI/_agentic_UI_3.png';
 import image_agentic_4 from 'figma:asset/_agentic_UI/_agentic_UI_4.png';
@@ -144,55 +144,6 @@ export const PROJECTS = [
       outcome: "",
       techStack: "React, Vite, TypeScript, Tailwind, Framer Motion, Zustand, Claude API, Spotify Web API, YouTube Data API, GitHub Actions, Vercel",
       outcome: "picky-live-beta",
-      credits: "",
-    },
-  },
-  {
-    id: "2",
-    title: "Deel AI Filter",
-    category: "Strategy",
-    role: "Staff Product Designer",
-    image: image_ai_filter_cover,
-    description: "A search field that understands intent transforming simple queries into multi-layered filters.",
-    additionalImages: [
-        image_e2ea81540a01142a3a2fa93889862a0562ac690f,
-        image_e1c6329a0d3e089d2d71032b8757b26f74ae4a26,
-        image_ai_filter_frame5,
-    ],
-    content: {
-        contribution: "UX design, Interaction design, Design systems",
-        overview: (
-            <>
-                I designed the <span className="text-[#FF9300] font-semibold">AI filter pattern</span> to translate natural language queries into structured, scalable filters across Deel’s data-heavy surfaces. The system adapts across contexts—data grids, filter drawers, and advanced rule editors—<span className="text-[#FF9300] font-semibold">improving discoverability</span> while reducing the effort required to <span className="text-[#FF9300] font-semibold">refine complex datasets</span>.
-            </>
-        ),
-        outcome: "The pattern was adopted by four product teams within the first quarter, where AI-generated conditions reduced client setup time by approximately 22% during workforce imports and syncs. Smart filters achieved a 91% first-try accuracy rate, validating the system’s ability to reliably convert intent into actionable structure.",
-        techStack: "Unreal Engine 5, React, Three.js",
-        credits: "Architecture: BIG\nDigital Experience: Alex Morgan Studio"
-    }
-  },
-  {
-    id: "marketplace",
-    title: "Deel Marketplace",
-    category: "Product",
-    role: "Staff Product Designer",
-    image: image_marketplace_cover,
-    description: "A marketplace experience that lets companies discover, evaluate, and connect 80+ integrations to their Deel workspace",
-    additionalImages: [
-      image_marketplace_1,
-      image_marketplace_2,
-      image_marketplace_3,
-      image_marketplace_4,
-    ],
-    content: {
-      contribution: "UX design, Interaction design, Design systems",
-      overview: (
-        <>
-          A marketplace experience that lets companies discover, evaluate, and connect 80+ integrations to their Deel workspace — from HRIS and accounting tools to SSO providers and automation platforms.
-        </>
-      ),
-      outcome: "Covers discovery, per-app detail pages, guided install & provisioning flows, role-aware access (admin vs. employee vs. logged-out), post-install management, and a fully responsive layout — all built on Deel’s internal design system.",
-      techStack: "React, TypeScript, Deel UI Core",
       credits: "",
     },
   },
@@ -227,6 +178,30 @@ export const PROJECTS = [
     }
   },
   {
+    id: "2",
+    title: "Deel AI Filter",
+    category: "Strategy",
+    role: "Staff Product Designer",
+    image: image_ai_filter_cover,
+    description: "A search field that understands intent transforming simple queries into multi-layered filters.",
+    additionalImages: [
+        image_e2ea81540a01142a3a2fa93889862a0562ac690f,
+        image_e1c6329a0d3e089d2d71032b8757b26f74ae4a26,
+        image_ai_filter_frame5,
+    ],
+    content: {
+        contribution: "UX design, Interaction design, Design systems",
+        overview: (
+            <>
+                I designed the <span className="text-[#FF9300] font-semibold">AI filter pattern</span> to translate natural language queries into structured, scalable filters across Deel’s data-heavy surfaces. The system adapts across contexts—data grids, filter drawers, and advanced rule editors—<span className="text-[#FF9300] font-semibold">improving discoverability</span> while reducing the effort required to <span className="text-[#FF9300] font-semibold">refine complex datasets</span>.
+            </>
+        ),
+        outcome: "The pattern was adopted by four product teams within the first quarter, where AI-generated conditions reduced client setup time by approximately 22% during workforce imports and syncs. Smart filters achieved a 91% first-try accuracy rate, validating the system’s ability to reliably convert intent into actionable structure.",
+        techStack: "Unreal Engine 5, React, Three.js",
+        credits: "Architecture: BIG\nDigital Experience: Alex Morgan Studio"
+    }
+  },
+  {
     id: "3",
     title: "Deel AI Global Search",
     category: "Development",
@@ -256,6 +231,31 @@ export const PROJECTS = [
         techStack: "React Native, GraphQL, Node.js",
         credits: "Design: Coinbase Design Team\nDevelopment: Alex Morgan Studio"
     }
+  },
+  {
+    id: "marketplace",
+    title: "Deel Marketplace",
+    category: "Product",
+    role: "Staff Product Designer",
+    image: image_marketplace_cover,
+    description: "A marketplace experience that lets companies discover, evaluate, and connect 80+ integrations to their Deel workspace",
+    additionalImages: [
+      image_marketplace_1,
+      image_marketplace_2,
+      image_marketplace_3,
+      image_marketplace_4,
+    ],
+    content: {
+      contribution: "UX design, Interaction design, Design systems",
+      overview: (
+        <>
+          A marketplace experience that lets companies discover, evaluate, and connect 80+ integrations to their Deel workspace — from HRIS and accounting tools to SSO providers and automation platforms.
+        </>
+      ),
+      outcome: "Covers discovery, per-app detail pages, guided install & provisioning flows, role-aware access (admin vs. employee vs. logged-out), post-install management, and a fully responsive layout — all built on Deel’s internal design system.",
+      techStack: "React, TypeScript, Deel UI Core",
+      credits: "",
+    },
   },
   {
     id: "1",
