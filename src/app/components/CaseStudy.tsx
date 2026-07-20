@@ -98,6 +98,9 @@ import image_proprioo_detail3 from 'figma:asset/new images no bg/proprioo/4_8.5.
 import image_ai_system_old_cover from 'figma:asset/new images no bg/ai system/Old cover/0_Container.png';
 import video_agentic_light from 'figma:asset/_agentic_UI/video/new-video/Agentic-light-video-compressed.mp4';
 import video_agentic_dark from 'figma:asset/_agentic_UI/video/new-video/Agentic-dark-video-compressed.mp4';
+import video_swell_hero from 'figma:asset/swell club/video/swell-club-hero-compressed.mp4';
+import image_swell_2 from 'figma:asset/swell club/2_swell-img-2.png';
+import image_swell_3 from 'figma:asset/swell club/3_swell-img-3.png';
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
 import { ArrowLeft, Play, Pause } from "lucide-react";
@@ -135,6 +138,8 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
   const [isAgenticVideoPlaying, setIsAgenticVideoPlaying] = useState(true);
   const earrVideoRef = useRef<HTMLVideoElement>(null);
   const [isEarrVideoPlaying, setIsEarrVideoPlaying] = useState(true);
+  const swellVideoRef = useRef<HTMLVideoElement>(null);
+  const [isSwellVideoPlaying, setIsSwellVideoPlaying] = useState(true);
   const aiFilterVideoRef = useRef<HTMLVideoElement>(null);
   const [isAiFilterVideoPlaying, setIsAiFilterVideoPlaying] = useState(true);
 
@@ -241,6 +246,8 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
                             ? "A marketplace experience that lets companies discover, evaluate, and connect 80+ integrations to their Deel workspace — from HRIS and accounting tools to SSO providers and automation platforms."
                             : project.id === 'picky'
                             ? "A swipe-based music discovery PWA that aggregates album reviews from trusted critics and influencers — Pitchfork, Anthony Fantano, The Quietus, Tofu Media, Turning the Tables — into one fast, mobile-first feed. Swipe right to save, left to skip, tap to read the full review and open the album in Spotify or Apple Music."
+                            : project.id === 'swell-club'
+                            ? "A mobile-first PWA for surfers checking conditions at Peniche and Ericeira. Instead of raw swell/wind/wave numbers, Swell Club scores each spot against your level (beginner, intermediate, advanced) and tells you plainly whether it's worth paddling out — with the reasoning behind the score, a live map, and per-spot detail pages with wind direction, swell angle, and wave height."
                             : project.id === '8'
                             ? "I designed the seller messaging flow at Proprioo to help agents move from raw contact lists to targeted, contextual outreach. The experience brings together contact selection, status-based filtering, and message creation into a single, structured workflow, reducing friction and helping agents focus on the right sellers at the right time. By aligning data, actions, and messaging in one flow, the system improved efficiency, clarity, and consistency across agent communication."
                             : project.content.overview}
@@ -253,6 +260,8 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
                                     ? "I documented the full navigation model across desktop and mobile to support scalability and long-term adoption. Within the first quarter, the pattern was adopted by six product teams and became a shared navigation foundation, reducing design debt and improving wayfinding metrics by nearly 20%."
                                     : project.id === 'picky'
                                     ? <>Earr is a personal project I designed and built from scratch. Currently in beta — live and usable at <a href="https://www.earr.space/" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">earr.space</a>. Still iterating on onboarding, the feedback loop, and new sources.</>
+                                    : project.id === 'swell-club'
+                                    ? <>Swell Club is a personal project I designed and built from scratch. Currently live and installable at <a href="https://swellclub.fun" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">swellclub.fun</a>. Still iterating on the scoring model, new regions, and onboarding.<br /><br />Built with React, TypeScript, and Vite, with an n8n workflow powering the surf-scoring backend. Ships as an installable PWA with offline support via a service worker.</>
                                     : project.content.outcome}
                             </span>
                         )}
@@ -354,6 +363,40 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
                             preload="metadata"
                         />
                     </div>
+                ) : project.id === 'swell-club' ? (
+                    <div className={`relative aspect-[2304/1350] w-full flex items-center justify-center ${isDark ? "bg-[#2C2C2E]" : "bg-neutral-100"}`}>
+                        <button
+                            type="button"
+                            onClick={() => {
+                                const videoEl = swellVideoRef.current;
+                                if (!videoEl) return;
+                                if (videoEl.paused) {
+                                    videoEl.play();
+                                    setIsSwellVideoPlaying(true);
+                                } else {
+                                    videoEl.pause();
+                                    setIsSwellVideoPlaying(false);
+                                }
+                            }}
+                            className={`absolute top-4 left-4 z-10 flex items-center justify-center backdrop-blur-md border w-8 h-8 rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.15)] transition-colors ${isDark ? "bg-black/40 border-white/10 text-white hover:bg-black/60" : "bg-white/80 border-black/10 text-[#1D1D1F] hover:bg-white"}`}
+                        >
+                            {isSwellVideoPlaying ? (
+                                <Pause className="w-3.5 h-3.5" fill="currentColor" stroke="none" />
+                            ) : (
+                                <Play className="w-3.5 h-3.5 ml-0.5" fill="currentColor" stroke="none" />
+                            )}
+                        </button>
+                        <video
+                            ref={swellVideoRef}
+                            src={video_swell_hero}
+                            className="h-[88%] w-auto object-contain rounded-2xl"
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            preload="metadata"
+                        />
+                    </div>
                 ) : (
                     <img
                         src={project.id === '1' ? image_ai_system_old_cover : project.id === '2' ? image_ai_filter_2 : project.id === '5' ? (isDark ? image_dark_sidebar_0 : project.image) : project.image}
@@ -379,7 +422,7 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
             )}
 
             {/* Challenge Section */}
-            {project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && project.id !== 'agentic-ui' && (
+            {project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'swell-club' && project.id !== 'marketplace' && project.id !== 'agentic-ui' && (
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-4 lg:gap-12 px-6 lg:px-[144px] py-[56px]">
                    <div>
                       <h3 className={`text-2xl font-medium ${isDark ? "text-white" : "text-[#1D1D1F]"}`}>The Challenge</h3>
@@ -441,6 +484,18 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
                         </>
                     )}
 
+                    {/* Swell Club Special Layout */}
+                    {project.id === 'swell-club' && (
+                        <>
+                            <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
+                                <img src={image_swell_2} alt="Swell Club Detail 2" className="w-full h-auto object-cover" loading="lazy" />
+                            </div>
+                            <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
+                                <img src={image_swell_3} alt="Swell Club Detail 3" className="w-full h-auto object-cover" loading="lazy" />
+                            </div>
+                        </>
+                    )}
+
                     {/* Marketplace Special Layout */}
                     {project.id === 'marketplace' && (
                         <>
@@ -451,7 +506,7 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
                     )}
 
                     {/* Next image if available */}
-                    {project.additionalImages.length > 1 && project.id !== '1' && project.id !== '2' && project.id !== '3' && project.id !== '4' && project.id !== '5' && project.id !== '6' && project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && project.id !== 'agentic-ui' && (
+                    {project.additionalImages.length > 1 && project.id !== '1' && project.id !== '2' && project.id !== '3' && project.id !== '4' && project.id !== '5' && project.id !== '6' && project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'swell-club' && project.id !== 'marketplace' && project.id !== 'agentic-ui' && (
                         <>
                              <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                                 <img src={project.additionalImages[1]} alt="Project Detail 2" className="w-full h-auto object-cover" loading="lazy" />
@@ -605,7 +660,7 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
                     {/* Solution Section */}
 
                     {project.id !== '2' && project.id !== 'agentic-ui' && (
-                        project.id !== '3' && project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && (
+                        project.id !== '3' && project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'swell-club' && project.id !== 'marketplace' && (
                            <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-4 lg:gap-12 px-6 lg:px-[144px] py-[56px]">
                               <div>
                                  <h3 className={`text-2xl font-medium ${isDark ? "text-white" : "text-[#1D1D1F]"}`}>The Solution</h3>
@@ -620,7 +675,7 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
                     )}
 
                     {/* First additional image (Full width) */}
-                    {project.id !== '1' && project.id !== '5' && project.id !== '2' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && project.id !== 'agentic-ui' && (
+                    {project.id !== '1' && project.id !== '5' && project.id !== '2' && project.id !== '8' && project.id !== 'picky' && project.id !== 'swell-club' && project.id !== 'marketplace' && project.id !== 'agentic-ui' && (
                         <div className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                             <img src={project.id === '7' ? image_7d06fcacd31da9ee5c8ad7914f5e6b38d500a82c : project.additionalImages?.[0]} alt="Project Detail 1" className="w-full h-auto object-cover" loading="lazy" />
                         </div>
@@ -629,7 +684,7 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
 
 
                     {/* Remaining additional images (Full width) */}
-                    {project.additionalImages.length > 3 && project.id !== '1' && project.id !== '5' && project.id !== '6' && project.id !== '3' && project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'marketplace' && project.id !== 'agentic-ui' && project.additionalImages.slice(3).map((img, index) => (
+                    {project.additionalImages.length > 3 && project.id !== '1' && project.id !== '5' && project.id !== '6' && project.id !== '3' && project.id !== '7' && project.id !== '8' && project.id !== 'picky' && project.id !== 'swell-club' && project.id !== 'marketplace' && project.id !== 'agentic-ui' && project.additionalImages.slice(3).map((img, index) => (
                         <div key={index + 3} className={`rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                             <img src={img} alt={`Project Detail ${index + 4}`} className="w-full h-auto object-cover" loading="lazy" />
                         </div>

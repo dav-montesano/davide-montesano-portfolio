@@ -118,6 +118,9 @@ import image_agentic_cover1 from 'figma:asset/_agentic_UI/cover/New cover/_agent
 import image_agentic_1 from 'figma:asset/_agentic_UI/_agentic_UI_1.png';
 import image_agentic_3 from 'figma:asset/_agentic_UI/_agentic_UI_3.png';
 import image_agentic_4 from 'figma:asset/_agentic_UI/_agentic_UI_4.png';
+import image_swell_cover from 'figma:asset/swell club/1_cover-image-inpage-new-swell.png';
+import image_swell_2 from 'figma:asset/swell club/2_swell-img-2.png';
+import image_swell_3 from 'figma:asset/swell club/3_swell-img-3.png';
 
 // Mock Data
 export const PROJECTS = [
@@ -144,6 +147,29 @@ export const PROJECTS = [
       outcome: "",
       techStack: "React, Vite, TypeScript, Tailwind, Framer Motion, Zustand, Claude API, Spotify Web API, YouTube Data API, GitHub Actions, Vercel",
       outcome: "picky-live-beta",
+      credits: "",
+    },
+  },
+  {
+    id: "swell-club",
+    title: "Swell Club",
+    category: "Side Project",
+    role: "Product Designer & Builder",
+    image: image_swell_cover,
+    description: "A surf-conditions PWA that turns raw forecast data into a single readable score, tuned to your skill level.",
+    additionalImages: [
+      image_swell_2,
+      image_swell_3,
+    ],
+    content: {
+      contribution: "Product design, Interaction design, Engineering (Claude Code), Architecture",
+      overview: (
+        <>
+          A mobile-first PWA for surfers checking conditions at Peniche and Ericeira. Instead of raw swell/wind/wave numbers, Swell Club scores each spot against your level (beginner, intermediate, advanced) and tells you plainly whether it's worth paddling out — with the reasoning behind the score, a live map, and per-spot detail pages with wind direction, swell angle, and wave height.
+        </>
+      ),
+      techStack: "React, TypeScript, Vite, n8n",
+      outcome: "swell-club-live-beta",
       credits: "",
     },
   },
