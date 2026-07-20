@@ -16,10 +16,18 @@ import SpotifyWidget from "./components/SpotifyWidget";
 
 import { PROJECTS } from "./data/projects";
 
+// Defaults to dark mode in the evening/night (18:00–06:00 Italy time); manual toggle still overrides.
+function getIsDarkByItalianTime() {
+  const hour = Number(
+    new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Rome", hour: "2-digit", hour12: false }).format(new Date())
+  );
+  return hour >= 18 || hour < 6;
+}
+
 export default function App() {
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<string>('work');
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(getIsDarkByItalianTime);
 
   const selectedProject = PROJECTS.find((p) => p.id === selectedProjectId);
 
@@ -77,7 +85,7 @@ export default function App() {
                             </div>
                         </div>
                     )}
-                    projects={PROJECTS.filter(p => p.id !== '8' && p.id !== '7')}
+                    projects={PROJECTS.filter(p => p.id !== '8' && p.id !== '7' && p.id !== '5')}
                     onProjectClick={setSelectedProjectId} className="text-[24px] text-left px-[0px] py-[22px] rounded-[36px]"
                     isDark={isDark}
                 />

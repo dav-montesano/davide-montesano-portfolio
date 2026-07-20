@@ -18,12 +18,12 @@ interface WorkGridProps {
 }
 
 const CARD_COLORS_LIGHT = [
-  "#FFFFFF", // 1. Picky
+  "#FFFFFF", // 1. Earr
   "#FFFFFF", // 2. Swell Club
   "#FFFFFF", // 3. AI Filter
-  "#FFFFFF", // 4. Marketplace
-  "#FFFFFF", // 5. Agentic UI Builder
-  "#FFFFFF", // 6. AI Global Search
+  "#FFFFFF", // 4. Agentic UI Builder
+  "#FFFFFF", // 5. AI Global Search
+  "#FFFFFF", // 6. Marketplace
   "#FFFFFF", // 7. AI System
   "#FFFFFF", // 8. Sidebar
   "#FFFFFF", // 9. Casavo (hidden)
@@ -31,12 +31,12 @@ const CARD_COLORS_LIGHT = [
 ];
 
 const CARD_COLORS_DARK = [
-  "#2C2C30", // 1. Picky
+  "#2C2C30", // 1. Earr
   "#2C2C30", // 2. Swell Club
   "#2C2C30", // 3. AI Filter
-  "#2C2C30", // 4. Marketplace
-  "#2C2C30", // 5. Agentic UI Builder
-  "#2C2C30", // 6. AI Global Search
+  "#2C2C30", // 4. Agentic UI Builder
+  "#2C2C30", // 5. AI Global Search
+  "#2C2C30", // 6. Marketplace
   "#2C2C30", // 7. AI System
   "#2C2C30", // 8. Sidebar
   "#2C2C30", // 9. Casavo (hidden)
@@ -44,16 +44,16 @@ const CARD_COLORS_DARK = [
 ];
 
 const CARD_HOVER_COLORS: string[] = [
-  "#252429", // 1. Picky
-  "#2AAFAE", // 2. Swell Club
-  "#C6914D", // 3. AI Filter
-  "#498EFF", // 4. Marketplace
-  "#86BFE9", // 5. Agentic UI Builder
-  "#252429", // 6. AI Global Search
-  "#C6914D", // 7. AI System
-  "#498EFF", // 8. Sidebar
-  "#86BFE9", // 9. Casavo (hidden)
-  "#252429", // 10. Proprioo (hidden)
+  "#252429", // 1. Earr
+  "#C6914D", // 2. Swell Club
+  "#498EFF", // 3. AI Filter
+  "#86BFE9", // 4. Agentic UI Builder
+  "#252429", // 5. AI Global Search
+  "#C6914D", // 6. Marketplace
+  "#498EFF", // 7. AI System
+  "#86BFE9", // 8. Sidebar
+  "#252429", // 9. Casavo (hidden)
+  "#C6914D", // 10. Proprioo (hidden)
 ];
 
 export const WorkGrid = ({ projects, onProjectClick, introContent, isDark }: WorkGridProps) => {

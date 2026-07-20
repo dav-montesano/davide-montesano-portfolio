@@ -125,6 +125,29 @@ import image_swell_3 from 'figma:asset/swell club/3_swell-img-3.png';
 // Mock Data
 export const PROJECTS = [
   {
+    id: "swell-club",
+    title: "Swell Club",
+    category: "Side Project",
+    role: "Product Designer & Builder",
+    image: image_swell_cover,
+    description: "A surf-conditions PWA that turns raw forecast data into a single readable score, tuned to your skill level.",
+    additionalImages: [
+      image_swell_2,
+      image_swell_3,
+    ],
+    content: {
+      contribution: "Product design, Interaction design, Engineering (Claude Code), Architecture",
+      overview: (
+        <>
+          A mobile-first PWA for surfers checking conditions at Peniche and Ericeira. Instead of raw swell/wind/wave numbers, Swell Club scores each spot against your level (beginner, intermediate, advanced) and tells you plainly whether it's worth paddling out, with the reasoning behind the score, a live map, and per-spot detail pages with wind direction, swell angle, and wave height.
+        </>
+      ),
+      techStack: "React, TypeScript, Vite, n8n",
+      outcome: "swell-club-live-beta",
+      credits: "",
+    },
+  },
+  {
     id: "picky",
     title: "Earr",
     category: "Side Project",
@@ -147,29 +170,6 @@ export const PROJECTS = [
       outcome: "",
       techStack: "React, Vite, TypeScript, Tailwind, Framer Motion, Zustand, Claude API, Spotify Web API, YouTube Data API, GitHub Actions, Vercel",
       outcome: "picky-live-beta",
-      credits: "",
-    },
-  },
-  {
-    id: "swell-club",
-    title: "Swell Club",
-    category: "Side Project",
-    role: "Product Designer & Builder",
-    image: image_swell_cover,
-    description: "A surf-conditions PWA that turns raw forecast data into a single readable score, tuned to your skill level.",
-    additionalImages: [
-      image_swell_2,
-      image_swell_3,
-    ],
-    content: {
-      contribution: "Product design, Interaction design, Engineering (Claude Code), Architecture",
-      overview: (
-        <>
-          A mobile-first PWA for surfers checking conditions at Peniche and Ericeira. Instead of raw swell/wind/wave numbers, Swell Club scores each spot against your level (beginner, intermediate, advanced) and tells you plainly whether it's worth paddling out — with the reasoning behind the score, a live map, and per-spot detail pages with wind direction, swell angle, and wave height.
-        </>
-      ),
-      techStack: "React, TypeScript, Vite, n8n",
-      outcome: "swell-club-live-beta",
       credits: "",
     },
   },
@@ -228,6 +228,31 @@ export const PROJECTS = [
     }
   },
   {
+    id: "marketplace",
+    title: "Deel Marketplace",
+    category: "Product",
+    role: "Staff Product Designer",
+    image: image_marketplace_cover,
+    description: "A marketplace experience that lets companies discover, evaluate, and connect 80+ integrations to their Deel workspace",
+    additionalImages: [
+      image_marketplace_1,
+      image_marketplace_2,
+      image_marketplace_3,
+      image_marketplace_4,
+    ],
+    content: {
+      contribution: "UX design, Interaction design, Design systems",
+      overview: (
+        <>
+          A marketplace experience that lets companies discover, evaluate, and connect 80+ integrations to their Deel workspace — from HRIS and accounting tools to SSO providers and automation platforms.
+        </>
+      ),
+      outcome: "Covers discovery, per-app detail pages, guided install & provisioning flows, role-aware access (admin vs. employee vs. logged-out), post-install management, and a fully responsive layout — all built on Deel’s internal design system.",
+      techStack: "React, TypeScript, Deel UI Core",
+      credits: "",
+    },
+  },
+  {
     id: "3",
     title: "Deel AI Global Search",
     category: "Development",
@@ -257,31 +282,6 @@ export const PROJECTS = [
         techStack: "React Native, GraphQL, Node.js",
         credits: "Design: Coinbase Design Team\nDevelopment: Alex Morgan Studio"
     }
-  },
-  {
-    id: "marketplace",
-    title: "Deel Marketplace",
-    category: "Product",
-    role: "Staff Product Designer",
-    image: image_marketplace_cover,
-    description: "A marketplace experience that lets companies discover, evaluate, and connect 80+ integrations to their Deel workspace",
-    additionalImages: [
-      image_marketplace_1,
-      image_marketplace_2,
-      image_marketplace_3,
-      image_marketplace_4,
-    ],
-    content: {
-      contribution: "UX design, Interaction design, Design systems",
-      overview: (
-        <>
-          A marketplace experience that lets companies discover, evaluate, and connect 80+ integrations to their Deel workspace — from HRIS and accounting tools to SSO providers and automation platforms.
-        </>
-      ),
-      outcome: "Covers discovery, per-app detail pages, guided install & provisioning flows, role-aware access (admin vs. employee vs. logged-out), post-install management, and a fully responsive layout — all built on Deel’s internal design system.",
-      techStack: "React, TypeScript, Deel UI Core",
-      credits: "",
-    },
   },
   {
     id: "1",

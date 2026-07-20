@@ -38,7 +38,7 @@ export function ContactCard({ isDark }: { isDark?: boolean }) {
         >
           <IconWrapper viewBox="0 0 91 91" className="translate-y-[15%] md:translate-y-0">
             <g id="mail_icon">
-              <path d={svgPaths.p358554f0} fill="currentColor" className={isDark ? "text-white" : "text-black"} />
+              <path d={svgPaths.p358554f0} fill="currentColor" className={isDark ? "text-neutral-300" : "text-black"} />
             </g>
           </IconWrapper>
         </div>
@@ -50,7 +50,7 @@ export function ContactCard({ isDark }: { isDark?: boolean }) {
         <a href="https://www.linkedin.com/in/davide-montesano/" target="_blank" rel="noopener noreferrer" className="pointer-events-auto flex-none rotate-[18.374deg] block hover:scale-110 transition-transform duration-300 w-full h-full">
           <IconWrapper viewBox="0 0 86.6628 86.6628" className="translate-y-[10%] md:translate-y-0">
             <g id="linkedin_icon">
-              <path d={svgPaths.p392bf600} fill="currentColor" className={isDark ? "text-white" : "text-black"} />
+              <path d={svgPaths.p392bf600} fill="currentColor" className={isDark ? "text-neutral-300" : "text-black"} />
             </g>
           </IconWrapper>
         </a>
