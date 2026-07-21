@@ -755,7 +755,7 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
             {/* Contact CTA — final block */}
             <div className={`relative aspect-[2304/1350] w-full rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
                 <img
-                    src={project.id === '2' ? image_ai_filter_2 : project.image}
+                    src={project.id === '2' ? image_f19d971b50bd77036f16ba270b5fa65217e90a96 : project.image}
                     alt=""
                     aria-hidden="true"
                     className="absolute inset-0 w-full h-full object-cover scale-150 blur-2xl saturate-150 contrast-110"

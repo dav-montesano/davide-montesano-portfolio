@@ -78,7 +78,7 @@ export default function App() {
                                  </div>
 
                                  {/* Map Block */}
-                                 <div className="w-full aspect-[4/3] h-auto md:aspect-auto md:h-full relative rounded-[36px] overflow-hidden isolate shadow-sm border border-white/10">
+                                 <div className="w-full aspect-[16/9] h-auto md:aspect-auto md:h-full relative rounded-[36px] overflow-hidden isolate shadow-sm border border-white/10">
                                     <MilanMapWidget isDark={isDark} />
                                  </div>
                             </div>

@@ -94,7 +94,8 @@ export function MilanMapWidget({ isDark }: { isDark?: boolean }) {
         interactive: false,
         attributionControl: false,
       });
-      mapRef.current.once("load", () => setIsMapLoaded(true));
+      // "idle" (not "load") — with pitch:50 the horizon needs tiles/building extrusions that are still streaming in when "load" fires, causing a visible pop after the skeleton fades
+      mapRef.current.once("idle", () => setIsMapLoaded(true));
     });
 
     return () => {
@@ -139,21 +140,21 @@ export function MilanMapWidget({ isDark }: { isDark?: boolean }) {
       </div>
 
       <div
-        className="absolute bottom-[8px] left-[8px] right-[8px] h-[51px] rounded-full shrink-0 bg-black/35 backdrop-blur-md flex items-center justify-between pl-[16px] pr-[16px]"
+        className={`absolute bottom-[8px] left-[8px] right-[8px] h-[51px] rounded-full shrink-0 backdrop-blur-sm flex items-center justify-between pl-[16px] pr-[16px] border border-transparent ${isDark ? "bg-black/10 shadow-[inset_0px_1px_0.5px_0px_rgba(255,255,255,0.2),inset_0px_-1px_0.5px_0px_rgba(255,255,255,0.03),0px_1px_3px_0px_rgba(0,0,0,0.15)]" : "bg-white/30 shadow-[inset_0px_1px_0.5px_0px_rgba(255,255,255,0.8),inset_0px_-1px_0.5px_0px_rgba(255,255,255,0.15),0px_1px_3px_0px_rgba(0,0,0,0.06)]"}`}
         data-name="Container"
       >
         <div className="flex items-center gap-[16px] h-full">
           <svg className="size-[20px] shrink-0" fill="none" preserveAspectRatio="none" viewBox="0 0 19.9997 19.9997">
-            <path d={svgPaths.p2de4100} fill="var(--fill-0, white)" fillOpacity="0.75" id="Vector" />
+            <path d={svgPaths.p2de4100} fill="var(--fill-0, #2b7fff)" fillOpacity="1" id="Vector" />
           </svg>
           <div className="flex flex-col items-start justify-center">
-            <p className="font-['Inter:Medium',sans-serif] font-medium leading-[21px] not-italic text-[17px] text-white text-nowrap">{HOME.city}</p>
-            <p className="font-['Inter:Regular',sans-serif] font-normal leading-[18px] not-italic text-[13px] text-white/75 text-nowrap">
+            <p className={`font-['Inter:Medium',sans-serif] font-medium leading-[21px] not-italic text-[16px] text-nowrap ${isDark ? "text-white" : "text-black"}`}>{HOME.city}</p>
+            <p className={`font-['Inter:Regular',sans-serif] font-normal leading-[18px] not-italic text-[12px] text-nowrap ${isDark ? "text-white/75" : "text-neutral-600"}`}>
               {time.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: HOME.timeZone })}
             </p>
           </div>
         </div>
-        <p className="font-['Inter:Medium',sans-serif] font-medium leading-[22px] not-italic text-[22px] text-white text-nowrap">
+        <p className={`font-['Inter:Regular',sans-serif] font-normal leading-[22px] not-italic text-[20px] text-nowrap ${isDark ? "text-white" : "text-black"}`}>
           {temperature !== null ? `${temperature}°` : "7°"}
         </p>
       </div>
