@@ -51,7 +51,7 @@ export const AboutPage = ({ isDark }: { isDark?: boolean }) => {
         <div className="h-auto md:h-[240px] grid grid-cols-1 md:grid-cols-2 gap-[16px]">
              {/* Map Block */}
              <div className="w-full aspect-[4/3] md:aspect-auto md:h-full relative rounded-[36px] overflow-hidden isolate shadow-sm border border-white/10">
-                <MilanMapWidget />
+                <MilanMapWidget isDark={isDark} />
              </div>
 
              {/* Socials Block */}

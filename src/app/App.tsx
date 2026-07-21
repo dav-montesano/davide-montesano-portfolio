@@ -4,7 +4,6 @@ import { Clock, Hand, Instagram, Linkedin, Twitter } from "lucide-react";
 import { MilanMapWidget } from "./components/MilanMapWidget";
 import { Header } from "./components/Header";
 import { WorkGrid } from "./components/WorkGrid";
-import { ContactCard } from "./components/ContactCard";
 import { Typewriter } from "./components/Typewriter";
 import { CurrentDate } from "./components/CurrentDate";
 import { AboutPage } from "./components/AboutPage";
@@ -73,14 +72,14 @@ export default function App() {
 
                             {/* Row B: Bottom Cards */}
                             <div className="w-full h-auto md:h-full grid grid-cols-1 md:grid-cols-2 gap-[16px]">
-                                 {/* Map Block */}
+                                 {/* Music Block */}
                                  <div className="w-full h-auto md:h-full">
                                     <SpotifyWidget isDark={isDark} />
                                  </div>
 
-                                 {/* Socials Block */}
-                                 <div className="w-full aspect-[4/3] h-auto md:aspect-auto md:h-full">
-                                    <ContactCard isDark={isDark} />
+                                 {/* Map Block */}
+                                 <div className="w-full aspect-[4/3] h-auto md:aspect-auto md:h-full relative rounded-[36px] overflow-hidden isolate shadow-sm border border-white/10">
+                                    <MilanMapWidget isDark={isDark} />
                                  </div>
                             </div>
                         </div>

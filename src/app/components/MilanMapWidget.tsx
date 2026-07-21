@@ -1,11 +1,55 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import maplibregl, { type StyleSpecification } from "maplibre-gl";
+import "maplibre-gl/dist/maplibre-gl.css";
 import svgPaths from "./icons/weatherMapPaths";
 import imgImageUser from "figma:asset/61919d90bd86015ca55b0ceeda3ede4a630f3f5a.png";
-import imgMilanMapWidget from "figma:asset/a3826e338d4675eb15b7d61a2b8c87dd8084ba2c.png";
 
-export function MilanMapWidget() {
+// Fixed home base — Città Studi, Milan
+const HOME = { lat: 45.4784, lon: 9.2263, city: "Milan", timeZone: "Europe/Rome" };
+const MAP_ZOOM = 14.5; // below ~14 the vector tiles stop carrying building geometry, so 3D disappears
+const MAP_PITCH = 50;
+const BUILDING_3D_MINZOOM = 13;
+
+const STYLE_URL = { light: "https://tiles.openfreemap.org/styles/liberty", dark: "https://tiles.openfreemap.org/styles/dark" };
+
+// Strip text labels, POI icons and road shields so the map reads as quiet shapes, not a directory
+async function loadCleanStyle(url: string, isDark: boolean): Promise<StyleSpecification | string> {
+  try {
+    const res = await fetch(url);
+    const style = (await res.json()) as StyleSpecification;
+    style.layers = style.layers.filter((layer) => layer.type !== "symbol");
+
+    // OpenFreeMap's "dark" style ships buildings as a flat fill (unlike "liberty"), so add the 3D extrusion ourselves
+    const buildingExtrusion = style.layers.find((layer) => layer.type === "fill-extrusion");
+    if (buildingExtrusion) {
+      buildingExtrusion.minzoom = BUILDING_3D_MINZOOM; // native layer defaults to 14, above our map's resting zoom
+    } else {
+      style.layers.push({
+        id: "building-3d",
+        type: "fill-extrusion",
+        source: "openmaptiles",
+        "source-layer": "building",
+        minzoom: BUILDING_3D_MINZOOM,
+        paint: {
+          "fill-extrusion-base": ["get", "render_min_height"],
+          "fill-extrusion-height": ["get", "render_height"],
+          "fill-extrusion-color": isDark ? "hsl(220,10%,22%)" : "hsl(35,8%,85%)",
+          "fill-extrusion-opacity": isDark ? 0.9 : 0.8,
+        },
+      });
+    }
+
+    return style;
+  } catch {
+    return url; // let MapLibre fetch it directly as a fallback
+  }
+}
+
+export function MilanMapWidget({ isDark }: { isDark?: boolean }) {
   const [time, setTime] = useState(new Date());
   const [temperature, setTemperature] = useState<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const mapRef = useRef<maplibregl.Map | null>(null);
 
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 1000);
@@ -16,7 +60,7 @@ export function MilanMapWidget() {
     const fetchWeather = async () => {
       try {
         const response = await fetch(
-          "https://api.open-meteo.com/v1/forecast?latitude=45.4642&longitude=9.1900&current=temperature_2m"
+          `https://api.open-meteo.com/v1/forecast?latitude=${HOME.lat}&longitude=${HOME.lon}&current=temperature_2m`
         );
         const data = await response.json();
         setTemperature(Math.round(data.current.temperature_2m));
@@ -32,58 +76,78 @@ export function MilanMapWidget() {
     return () => clearInterval(weatherTimer);
   }, []);
 
+  // (Re)create the map whenever the container mounts or the theme changes
+  useEffect(() => {
+    if (!containerRef.current) return;
+    let cancelled = false;
+
+    loadCleanStyle(isDark ? STYLE_URL.dark : STYLE_URL.light, !!isDark).then((style) => {
+      if (cancelled || !containerRef.current) return;
+      mapRef.current?.remove();
+      mapRef.current = new maplibregl.Map({
+        container: containerRef.current,
+        style,
+        center: [HOME.lon, HOME.lat],
+        zoom: MAP_ZOOM,
+        pitch: MAP_PITCH,
+        interactive: false,
+        attributionControl: false,
+      });
+    });
+
+    return () => {
+      cancelled = true;
+      mapRef.current?.remove();
+      mapRef.current = null;
+    };
+  }, [isDark]);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const ro = new ResizeObserver(() => mapRef.current?.resize());
+    ro.observe(containerRef.current);
+    return () => ro.disconnect();
+  }, []);
+
   return (
-    <div className="relative rounded-[36px] size-full" data-name="MilanMapWidget">
-      <img alt="" className="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none rounded-[36px] size-full" src={imgMilanMapWidget} />
-      <div className="flex flex-col items-center justify-end size-full">
-        <div className="content-stretch flex flex-col gap-[10px] items-center justify-end overflow-clip p-[8px] relative w-full aspect-[4/3] md:aspect-auto md:h-full">
-          <div className="absolute right-[40px] size-[56px] top-[calc(50%-51.5px)] translate-y-[-50%]" data-name="location">
-            <div className="absolute bg-[rgba(43,127,255,0.2)] left-[-20px] opacity-[0.873] rounded-[1.67772e+07px] size-[96px] top-[-20px]" data-name="Container">
-              <div className="absolute bg-[#2b7fff] border-2 border-solid border-white left-1/2 rounded-[1.67772e+07px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_-1px_rgba(0,0,0,0.1)] size-[16px] top-[77px] translate-x-[-50%]" data-name="Container" />
-            </div>
-            <div className="absolute bg-[rgba(43,127,255,0.3)] left-[4px] rounded-[1.67772e+07px] size-[48px] top-[4px]" data-name="Container" />
-            <div className="absolute bg-white left-1/2 rounded-[1.67772e+07px] size-[56px] top-0 translate-x-[-50%]" data-name="avatar">
-              <div className="content-stretch flex flex-col items-center justify-center overflow-clip p-[3px] relative rounded-[inherit] size-full">
-                <div className="relative shrink-0 size-[60px]" data-name="Image (User)">
-                  <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    <img alt="" className="absolute left-0 max-w-none size-full top-0" src={imgImageUser} />
-                  </div>
-                </div>
+    <div className="relative isolate rounded-[36px] size-full overflow-hidden" data-name="MilanMapWidget">
+      <div ref={containerRef} className="absolute inset-0 size-full" />
+
+      {/* Location pin — anchored exactly at the map's center point (HOME coordinates) */}
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" data-name="location">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[50px] rounded-full bg-[rgba(43,127,255,0.2)] opacity-[0.873]" data-name="pulse" />
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[14px] rounded-full bg-[#2b7fff] border-2 border-solid border-white shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_-1px_rgba(0,0,0,0.1)]" data-name="dot" />
+        <div className="absolute left-1/2 bottom-[7px] -translate-x-1/2 size-[48px] rounded-full bg-white" data-name="avatar">
+          <div className="absolute inset-[3px] rounded-full bg-[rgba(43,127,255,0.3)]" />
+          <div className="relative flex flex-col items-center justify-center overflow-hidden p-[2px] rounded-full size-full">
+            <div className="relative shrink-0 size-[51px]" data-name="Image (User)">
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <img alt="" className="absolute left-0 max-w-none size-full top-0" src={imgImageUser} />
               </div>
-              <div aria-hidden="true" className="absolute border-[3px] border-solid border-white inset-0 pointer-events-none rounded-[1.67772e+07px] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.15)]" />
             </div>
           </div>
-          <div className="absolute bottom-[8px] left-[8px] right-[8px] backdrop-blur-[1px] backdrop-filter bg-[rgba(25,25,25,0.65)] h-[51px] rounded-[36px] shrink-0" data-name="Container">
-            <div className="flex flex-row items-center size-full">
-              <div className="content-stretch flex items-center justify-between pl-[6px] pr-[16px] py-[6px] relative size-full overflow-hidden">
-                <div className="h-full relative shrink-0 w-[141.641px]" data-name="Container">
-                  <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[8px] items-center relative size-full">
-                    <div className="aspect-[44/44] bg-[rgba(255,255,255,0.05)] h-full relative rounded-[1.67772e+07px] shrink-0" data-name="Container">
-                      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center justify-center relative size-full">
-                        <div className="relative shrink-0 size-[20px]" data-name="Vector">
-                          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 19.9997 19.9997">
-                            <path d={svgPaths.p2de4100} fill="var(--fill-0, white)" fillOpacity="0.7" id="Vector" />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="basis-0 grow h-[40.75px] min-h-px min-w-px relative shrink-0" data-name="Container">
-                      <div className="flex flex-col items-start justify-center h-full">
-                        <p className="font-['Inter:Regular',sans-serif] font-normal leading-[21.25px] not-italic text-[17px] text-[rgba(255,255,255,0.9)] text-nowrap">Milan</p>
-                        <p className="font-['Inter:Regular',sans-serif] font-normal leading-[19.5px] not-italic text-[13px] text-[rgba(255,255,255,0.5)] text-nowrap tracking-[-0.0762px]">
-                          {time.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <p className="font-['Inter:Light',sans-serif] font-light leading-[32px] not-italic relative shrink-0 text-[24px] text-[rgba(255,255,255,0.9)] text-nowrap tracking-[-1.1297px]">
-                  {temperature !== null ? `${temperature}°` : "7°"}
-                </p>
-              </div>
-            </div>
+          <div aria-hidden="true" className="absolute border-2 border-solid border-white inset-0 rounded-full shadow-[0px_4px_12px_0px_rgba(0,0,0,0.15)]" />
+        </div>
+      </div>
+
+      <div
+        className="absolute bottom-[8px] left-[8px] right-[8px] h-[51px] rounded-full shrink-0 bg-black/35 backdrop-blur-md flex items-center justify-between pl-[16px] pr-[16px]"
+        data-name="Container"
+      >
+        <div className="flex items-center gap-[16px] h-full">
+          <svg className="size-[20px] shrink-0" fill="none" preserveAspectRatio="none" viewBox="0 0 19.9997 19.9997">
+            <path d={svgPaths.p2de4100} fill="var(--fill-0, white)" fillOpacity="0.75" id="Vector" />
+          </svg>
+          <div className="flex flex-col items-start justify-center">
+            <p className="font-['Inter:Medium',sans-serif] font-medium leading-[21px] not-italic text-[17px] text-white text-nowrap">{HOME.city}</p>
+            <p className="font-['Inter:Regular',sans-serif] font-normal leading-[18px] not-italic text-[13px] text-white/75 text-nowrap">
+              {time.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: HOME.timeZone })}
+            </p>
           </div>
         </div>
+        <p className="font-['Inter:Medium',sans-serif] font-medium leading-[22px] not-italic text-[22px] text-white text-nowrap">
+          {temperature !== null ? `${temperature}°` : "7°"}
+        </p>
       </div>
       <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.05)] border-solid inset-0 pointer-events-none rounded-[36px]" />
     </div>
