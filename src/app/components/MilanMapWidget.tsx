@@ -140,7 +140,7 @@ export function MilanMapWidget({ isDark }: { isDark?: boolean }) {
       </div>
 
       <div
-        className={`absolute bottom-[8px] left-[8px] right-[8px] h-[51px] rounded-full shrink-0 backdrop-blur-sm flex items-center justify-between pl-[16px] pr-[16px] border border-transparent ${isDark ? "bg-black/10 shadow-[inset_0px_1px_0.5px_0px_rgba(255,255,255,0.2),inset_0px_-1px_0.5px_0px_rgba(255,255,255,0.03),0px_1px_3px_0px_rgba(0,0,0,0.15)]" : "bg-white/30 shadow-[inset_0px_1px_0.5px_0px_rgba(255,255,255,0.8),inset_0px_-1px_0.5px_0px_rgba(255,255,255,0.15),0px_1px_3px_0px_rgba(0,0,0,0.06)]"}`}
+        className={`absolute bottom-[12px] left-[12px] right-[12px] h-[59px] rounded-full shrink-0 backdrop-blur-sm flex items-center justify-between pt-[4px] pb-[4px] pl-[16px] pr-[16px] border border-transparent ${isDark ? "bg-black/10 shadow-[inset_0px_1px_0.5px_0px_rgba(255,255,255,0.2),inset_0px_-1px_0.5px_0px_rgba(255,255,255,0.03),0px_1px_3px_0px_rgba(0,0,0,0.15)]" : "bg-white/30 shadow-[inset_0px_1px_0.5px_0px_rgba(255,255,255,0.8),inset_0px_-1px_0.5px_0px_rgba(255,255,255,0.15),0px_1px_3px_0px_rgba(0,0,0,0.06)]"}`}
         data-name="Container"
       >
         <div className="flex items-center gap-[16px] h-full">
