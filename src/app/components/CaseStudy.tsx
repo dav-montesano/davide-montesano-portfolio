@@ -751,6 +751,31 @@ export const CaseStudy = ({ project, onClose, isDark }: CaseStudyProps) => {
 
                 </>
             )}
+
+            {/* Contact CTA — final block */}
+            <div className={`relative aspect-[2304/1350] w-full rounded-2xl md:rounded-[2rem] overflow-hidden border ${isDark ? "bg-[#2C2C2E] border-white/10" : "bg-neutral-100 border-black/5"}`}>
+                <img
+                    src={project.id === '2' ? image_ai_filter_2 : project.image}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-full object-cover scale-150 blur-2xl saturate-150 contrast-110"
+                />
+                <div className={`absolute inset-0 ${isDark ? "bg-[#1D1D1F]/45" : "bg-white/35"}`} />
+                <div className="relative z-10 flex flex-col items-center justify-center text-center gap-4 px-6 h-full">
+                    <h3 className={`text-2xl font-medium ${isDark ? "text-white" : "text-[#1D1D1F]"}`}>
+                        Want to see more?
+                    </h3>
+                    <p className={`whitespace-nowrap leading-relaxed text-[16px] ${isDark ? "text-white/80" : "text-[#1D1D1F]"}`}>
+                        Details, metrics, KPIs, and the business impact of this project. Let's talk.
+                    </p>
+                    <a
+                        href="mailto:dav.montesano@gmail.com"
+                        className={`mt-2 px-6 py-3 rounded-full text-sm font-medium transition-colors ${isDark ? "bg-white text-[#1D1D1F] hover:bg-white/90" : "bg-[#1D1D1F] text-white hover:bg-black"}`}
+                    >
+                        dav.montesano@gmail.com
+                    </a>
+                </div>
+            </div>
           </div>
 
           {/* Bottom Footer / Copyright within the card? */}

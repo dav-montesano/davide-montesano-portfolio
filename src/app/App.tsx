@@ -84,7 +84,7 @@ export default function App() {
                             </div>
                         </div>
                     )}
-                    projects={PROJECTS.filter(p => p.id !== '8' && p.id !== '7' && p.id !== '5')}
+                    projects={PROJECTS.filter(p => p.id !== '8' && p.id !== '7' && p.id !== '5' && p.id !== '3' && p.id !== '1')}
                     onProjectClick={setSelectedProjectId} className="text-[24px] text-left px-[0px] py-[22px] rounded-[36px]"
                     isDark={isDark}
                 />

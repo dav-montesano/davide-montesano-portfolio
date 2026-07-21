@@ -48,6 +48,7 @@ async function loadCleanStyle(url: string, isDark: boolean): Promise<StyleSpecif
 export function MilanMapWidget({ isDark }: { isDark?: boolean }) {
   const [time, setTime] = useState(new Date());
   const [temperature, setTemperature] = useState<number | null>(null);
+  const [isMapLoaded, setIsMapLoaded] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
 
@@ -93,6 +94,7 @@ export function MilanMapWidget({ isDark }: { isDark?: boolean }) {
         interactive: false,
         attributionControl: false,
       });
+      mapRef.current.once("load", () => setIsMapLoaded(true));
     });
 
     return () => {
@@ -112,6 +114,12 @@ export function MilanMapWidget({ isDark }: { isDark?: boolean }) {
   return (
     <div className="relative isolate rounded-[36px] size-full overflow-hidden" data-name="MilanMapWidget">
       <div ref={containerRef} className="absolute inset-0 size-full" />
+
+      {/* Loading skeleton — masks the style/tile fetch delay, fades out once the map fires "load" */}
+      <div
+        className={`absolute inset-0 pointer-events-none transition-opacity duration-500 ${isMapLoaded ? "opacity-0" : "opacity-100 animate-pulse"} ${isDark ? "bg-[#2C2C2E]" : "bg-neutral-200"}`}
+        data-name="map-skeleton"
+      />
 
       {/* Location pin — anchored exactly at the map's center point (HOME coordinates) */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" data-name="location">
